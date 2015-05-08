@@ -3,81 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Chris Pearce&mdash;User Interface Developer</title>
-
-  <style>
-    html {
-      color: black;
-      font: 1.1em/1.6 "Helvetica Neue", Helvetica, sans-serif;
-    }
-
-    body,
-    html {
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      max-width: 88vw;
-      min-width: 280px;
-      margin: 0 auto;
-      padding-bottom: 1.5em;
-    }
-    @media (min-width: 37.5em) {
-      body {
-        max-width: 580px;
-        padding-bottom: 2.5em;
-      }
-    }
-
-    ::-moz-selection {
-      background: cadetblue;
-      color: white;
-      text-shadow: none;
-    }
-    ::selection {
-      background: cadetblue;
-      color: white;
-      text-shadow: none;
-    }
-
-    a,
-    a:visited {
-      border-bottom: 1px solid transparent;
-      color: cadetblue;
-      text-decoration: none;
-      transition: border-color 0.2s;
-    }
-    a:hover,
-    a:focus {border-bottom-color: cadetblue;}
-
-    abbr[title] {
-      cursor: help;
-      border-bottom: 1px dotted;
-    }
-
-    ul,
-    ol {
-      margin-left: 0;
-      padding-left: 0;
-      list-style: none;
-    }
-    @media (min-width: 37.5em) {
-      ul,
-      ol {list-style: circle;}
-    }
-
-    p {margin-bottom: 1.6em;}
-
-    p:first-child {
-      font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-      font-size: 1.5em;
-      line-height: 1.45;
-      margin: 2em 0;
-    }
-
-    img {max-width: 100%;}
-  </style>
-
+  <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="I am a passionate User Interface Developer developer working on the product team at Campaign Monitor, based in Sydney, Australia">
   <meta name="twitter:card" content="summary">
@@ -91,26 +17,29 @@
   <meta property="og:description" content="I am a passionate User Interface Developer developer working on the product team at Campaign Monitor, based in Sydney, Australia">
   <meta property="og:url" content="http://chris-pearce.me">
   <meta property="og:image" content="http://chris-pearce.me/img/social.jpg">
-
-  <link rel="shortcut icon" href="/icon.png">
-  <link rel="apple-touch-icon-precomposed" href="/icon-big.png">
 </head>
 
 <body itemscope itemtype="http://schema.org/Person">
-
-  <img src="me.jpg" alt="A photograph of Chris Pearce" width="256" itemprop="image">
-
-  <div itemprop="description">
-    <p><em><strong>Hi</strong>, I’m <span itemprop="name">Chris Pearce</span>, a <span itemprop="jobTitle">User Interface Developer</span> on the product team at <a href="https://www.campaignmonitor.com/" rel="external" itemprop="worksFor">Campaign Monitor</a>, based in <span itemprop="workLocation">Sydney, Australia</span>. My open source, <abbr title="Object Oriented CSS">OOCSS</abbr> framework <a href="https://github.com/chris-pearce/scally" rel="external">Scally</a>, and <a href="http://soundcla.sh/">Soundclash</a>&mdash;an app I built with my friend&mdash;also keeps me busy.</em></p>
-    <p>My attention to detail, years of experience, and care for the user allows me to build UI’s that are robust, highly maintainable, performant and progressively enhanced.</p>
+  <div class="wrap">
+    <img src="me-2.jpg" width="240" alt="A photograph of Chris Pearce and his daughter Matilda" itemprop="image">
   </div>
-
-  <ul>
-    <li><a href="mailto:hi@chris-pearce.me" itemprop="email">Drop me an email</a></li>
-    <li><a href="https://twitter.com/chris__pearce" rel="external">Follow me on Twitter</a></li>
-    <li><a href="https://au.linkedin.com/pub/chris-pearce/28/5b5/3a" rel="external" itemprop="sameAs">Professional profile on LinkedIn</a></li>
-    <li><a href="https://github.com/chris-pearce/" rel="external">Code stuff on GitHub</a></li>
-  </ul>
+  <div itemprop="description">
+    <div class="now-then">
+      <div class="wrap">
+        <p><em><strong>Hi</strong>, I’m <span itemprop="name">Chris Pearce</span>, a <span itemprop="jobTitle">User Interface Developer</span> on the product team at <a href="https://www.campaignmonitor.com/" rel="external" itemprop="worksFor">Campaign Monitor</a>, based in <span itemprop="workLocation">Sydney, Australia</span>. My open source, <abbr title="Object Oriented CSS">OOCSS</abbr> framework <a href="https://github.com/chris-pearce/scally" rel="external">Scally</a> also keeps me busy.</em></p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div >
+        <p>My attention to detail, years of experience, and care for the user allows me to build UI’s that are robust, highly maintainable, performant and progressively enhanced.</p>
+      </div>
+      <ul>
+        <li><a href="mailto:hi@chris-pearce.me" itemprop="email">Drop me an email</a></li>
+        <li><a href="https://twitter.com/chris__pearce" rel="external">Follow me on Twitter</a></li>
+        <li><a href="https://au.linkedin.com/pub/chris-pearce/28/5b5/3a" rel="external" itemprop="sameAs">Professional profile on LinkedIn</a></li>
+        <li><a href="https://github.com/chris-pearce/" rel="external">Code stuff on GitHub</a></li>
+      </ul>
+    </div>
+  </div>
 </body>
-
 </html>
