@@ -1,31 +1,47 @@
+$font-main:             "HelveticaNeue-Light", "Helvetica Neue Light",
+                        "Helvetica Neue", Helvetica, Arial, "Lucida Grande",
+                        sans-serif;
+$font-lede:             Palatino, "Palatino Linotype", "Palatino LT STD",
+                        "Book Antiqua", Georgia, serif;
+$color-main:            rgba(46, 48, 58, 0.96);
+$color-main-compliment: white;
+$color-link:            green;
+
 html {
-  color: black;
-  font: 1.1em/1.6 "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: $color-main;
+  font: 1.1em/1.5 $font-main;
+  font-weight: 300;
 }
 
 body,
 html {
   margin: 0;
   padding: 0;
+
+  @media (min-width: 37.5em) {
+    height: 100%;
+  }
 }
 
 body {
   min-width: 280px;
-  padding-bottom: 1.5em;
 
   @media (min-width: 37.5em) {
-    padding-bottom: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
 ::-moz-selection {
-  background: crimson;
-  color: white;
+  background: $color-main;
+  color: $color-main-compliment;
   text-shadow: none;
 }
+
 ::selection {
-  background: crimson;
-  color: white;
+  background: $color-main;
+  color: $color-main-compliment;
   text-shadow: none;
 }
 
@@ -33,23 +49,14 @@ a {
   &,
   &:visited {
     border-bottom: 1px solid transparent;
-    color: crimson;
+    color: $color-link;
     text-decoration: none;
-    transition: border-color 0.2s;
+    transition: all 0.2s;
   }
 
   &:hover,
-  &:focus {border-bottom-color: crimson;}
-
-  .now-then & {
-    &,
-    &:visited {
-      color: white;
-      border-bottom-color: white;
-    }
-
-    &:hover,
-    &:focus {border-bottom-color: transparent;}
+  &:focus {
+    border-bottom-color: $color-link;
   }
 }
 
@@ -60,8 +67,8 @@ abbr[title] {
 
 ul,
 ol {
-  margin-left: 0;
-  padding-left: 0;
+  margin: 0;
+  padding: 0;
   list-style: none;
 
   @media (min-width: 37.5em) {
@@ -69,33 +76,34 @@ ol {
   }
 }
 
-p {margin: 0 0 1.6em;}
+p {
+  margin: 0 0 1.6em;
 
-p:last-child {margin-bottom: 0;}
-
-img {
-  max-width: 100%;
-  height: auto;
-  vertical-align: middle;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
-// Wrapper
-.wrap {
-  max-width: 88vw;
+.lede {
+  font-family: $font-lede;
+  font-size: 1.5em;
+  line-height: 1.45;
+}
+
+img {
+  border: 2px solid green;
+  border-radius: 2px;
+  padding: 2px;
+  display: block;
+  margin: 0 auto 1.6em;
+}
+
+// Wrap
+body > div {
   margin: 0 auto;
+  padding: 1.6em;
 
   @media (min-width: 37.5em) {
     max-width: 580px;
   }
-}
-
-// Call out strip
-.now-then {
-  background-color: crimson;
-  color: white;
-  padding: 1.6em 0;
-  margin-bottom: 1.6em;
-  font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-  font-size: 1.5em;
-  line-height: 1.45;
 }
