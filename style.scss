@@ -1,36 +1,29 @@
-$font-main:             "HelveticaNeue-Light", "Helvetica Neue Light",
-                        "Helvetica Neue", Helvetica, Arial, "Lucida Grande",
-                        sans-serif;
+$font-main:             sans-serif;
 $font-lede:             Palatino, "Palatino Linotype", "Palatino LT STD",
                         "Book Antiqua", Georgia, serif;
-$color-main:            rgba(46, 48, 58, 0.96);
+$color-main:            #2F3439;
 $color-main-compliment: white;
-$color-link:            green;
+$color-link:            red;
 
 html {
   color: $color-main;
-  font: 1.1em/1.5 $font-main;
-  font-weight: 300;
+  font: 1.1em/1.6 $font-main;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+}
+
+* {
+  &,
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
 }
 
 body,
 html {
   margin: 0;
   padding: 0;
-
-  @media (min-width: 37.5em) {
-    height: 100%;
-  }
-}
-
-body {
-  min-width: 280px;
-
-  @media (min-width: 37.5em) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 }
 
 ::-moz-selection {
@@ -60,20 +53,11 @@ a {
   }
 }
 
-abbr[title] {
-  cursor: help;
-  border-bottom: 1px dotted;
-}
-
 ul,
 ol {
   margin: 0;
   padding: 0;
   list-style: none;
-
-  @media (min-width: 37.5em) {
-    list-style: circle;
-  }
 }
 
 p {
@@ -84,26 +68,37 @@ p {
   }
 }
 
-.lede {
-  font-family: $font-lede;
-  font-size: 1.5em;
-  line-height: 1.45;
+.section-container {
+  display: flex;
+  height: 100vh;
 }
 
-img {
-  border: 2px solid green;
-  border-radius: 2px;
-  padding: 2px;
-  display: block;
-  margin: 0 auto 1.6em;
+.section {
+  padding: 2em;
+  width: 40vw;
 }
 
-// Wrap
-body > div {
-  margin: 0 auto;
-  padding: 1.6em;
+.section--2 {
+  width: 20vw;
+  background-color: #eee;
+  text-shadow: 0 1px 1px darken(#eee, 10%);
 
-  @media (min-width: 37.5em) {
-    max-width: 580px;
+  &,
+  a {
+    color: white;
   }
+
+  a:hover,
+  a:focus {
+    color: darken(#eee, 14%);
+    text-shadow: none;
+    border-bottom-color: darken(#eee, 14%);
+  }
+}
+
+.section--3 {
+  border-right: 0;
+  box-shadow: none;
+  background: black url("me-4-large.jpg") no-repeat 100% 100%;
+  background-size: contain;
 }
