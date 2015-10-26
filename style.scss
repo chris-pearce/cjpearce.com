@@ -1,15 +1,18 @@
+// Settings
 $font-main:             sans-serif;
-$font-lede:             Palatino, "Palatino Linotype", "Palatino LT STD",
+$font-script:           Palatino, "Palatino Linotype", "Palatino LT STD",
                         "Book Antiqua", Georgia, serif;
-$color-main:            #2F3439;
-$color-main-compliment: white;
-$color-link:            red;
+$color-one-foreground:  white;
+$color-one-background:  black;
+$color-two-foreground:  $color-one-foreground;
+$color-two-background:  red;
+$bp:                    62em;
+
 
 html {
-  color: $color-main;
-  font: 1.1em/1.6 $font-main;
+  background-color: $color-one-background;
   box-sizing: border-box;
-  background-color: #f2f2f2;
+  font: 1.1em/1.6 $font-main;
 }
 
 * {
@@ -26,30 +29,23 @@ html {
   padding: 0;
 }
 
-::-moz-selection {
-  background: $color-main;
-  color: $color-main-compliment;
-  text-shadow: none;
-}
-
 ::selection {
-  background: $color-main;
-  color: $color-main-compliment;
-  text-shadow: none;
+  background: $color-two-background;
+  color: $color-two-foreground;
 }
 
 a {
   &,
   &:visited {
     border-bottom: 1px solid transparent;
-    color: $color-link;
+    color: $color-two-background;
     text-decoration: none;
-    transition: all 0.2s;
+    transition: all 0.15s;
   }
 
   &:hover,
   &:focus {
-    border-bottom-color: $color-link;
+    border-bottom-color: $color-two-background;
   }
 }
 
@@ -60,6 +56,10 @@ ol {
   list-style: none;
 }
 
+h1 {
+  margin-top: 0;
+}
+
 p {
   margin: 0 0 1.6em;
 
@@ -68,37 +68,64 @@ p {
   }
 }
 
+.lede {
+  font-family: $font-script;
+  font-style: italic;
+  font-size: 1.3em;
+  line-height: 1.4;
+}
+
 .section-container {
-  display: flex;
-  height: 100vh;
+  @media (min-width: $bp) {
+    display: flex;
+    height: 100vh;
+  }
 }
 
+// Intro
 .section {
+  background-color: $color-one-foreground;
   padding: 2em;
-  width: 40vw;
+
+  @media screen and (min-width: 46em) and (max-width: $bp) {
+    padding-right: 7em;
+  }
+
+  @media (min-width: $bp) {
+    width: 40vw;
+  }
 }
 
+// Elsewhere
 .section--2 {
-  width: 20vw;
-  background-color: #eee;
-  text-shadow: 0 1px 1px darken(#eee, 10%);
+  background-color: $color-two-background;
+
+  @media (min-width: $bp) {
+    width: 20vw;
+  }
 
   &,
   a {
-    color: white;
+    color: $color-two-foreground;
   }
 
   a:hover,
   a:focus {
-    color: darken(#eee, 14%);
-    text-shadow: none;
-    border-bottom-color: darken(#eee, 14%);
+    border-bottom-color: $color-two-foreground;
+  }
+
+  ::selection {
+    background: $color-one-foreground;
+    color: $color-one-background;
   }
 }
 
+// Pic of me
 .section--3 {
-  border-right: 0;
-  box-shadow: none;
-  background: black url("me-4-large.jpg") no-repeat 100% 100%;
-  background-size: contain;
+  padding: 0;
+
+  @media (min-width: $bp) {
+    background: black url("me-4-large.jpg") no-repeat bottom right;
+    background-size: contain;
+  }
 }
