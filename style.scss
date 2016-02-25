@@ -1,78 +1,20 @@
-$color-text-foreground: #fff;
-$color-text-background: #333;
-$color-link: $color-text-foreground;
-$color-link-hover-foreground: #fff;
-$color-link-hover-background: $color-text-foreground;
-
-@font-face {
-  font-family: Lora;
-  src:  local("Lora Italic"),
-        local("Lora-Italic"),
-        url("lora-italic.woff2") format("woff2"),
-        url("lora-italic.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-// @font-face {
-//   font-family: Lora;
-//   src:  local("Lora Bold"),
-//         local("Lora-Bold"),
-//         url("lora-bolditalic.woff2") format("woff2"),
-//         url("lora-bolditalic.woff") format("woff");
-//   font-weight: 700;
-//   font-style: normal;
-// }
-
 body,
 html {
     margin: 0;
     padding: 0;
     border: 0;
-    min-height: 100vh;
 }
 
 html {
-    // animation-delay: 2s;
-    // animation-duration: 5s;
-    // animation-iteration-count: infinite;
-    // animation-name: bg-crazies;
-    // animation-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
-    background: url("jam-jar-s.jpg") no-repeat;
-    background-size: cover;
+    background-color: antiquewhite;
     box-sizing: border-box;
-    color: $color-text-foreground;
-    font-family: Lora, serif;
+    color: white;
+    font-family: "Helvetica Neue", sans-serif;
     font-size: 1.1em;
-    font-weight: 400;
+    font-weight: 100;
     font-kerning: normal;
-    line-height: 1.5;
-
-    @media (min-width: 48em) {
-        background-image: url("jam-jar-m.jpg");
-    }
-
-    @media (min-width: 75em) {
-        background-image: url("jam-jar.jpg");
-    }
+    line-height: 1.6;
 }
-
-// @keyframes bg-crazies {
-//     0% {
-//         background-color: $color-main;
-//         background-blend-mode: luminosity;
-//     }
-
-//     60% {
-//         background-color: $color-strong;
-//         background-blend-mode: luminosity;
-//     }
-
-//     100% {
-//         background-color: $color-main;
-//         background-blend-mode: initial;
-//     }
-// }
 
 *,
 *::before,
@@ -81,32 +23,106 @@ html {
 }
 
 a {
-    color: $color-link;
-    //transition: background-color 0.05s ease-out;
+    border-bottom: 1px solid #333;
+    font-weight: 300;
+    padding-bottom: 0.1em;
+    transition: border-color 0.1s ease-in;
+
+    &,
+    &:hover,
+    &:focus {
+        color: white;
+        text-decoration: none;
+    }
 
     &:hover,
     &:focus {
-        text-decoration: none;
+        border-color: crimson;
     }
 }
 
-::selection {
-    background: $color-link-hover-background;
-    color: $color-link-hover-foreground;
+body > div {
+    background-color: crimson;
+    height: 5vh;
+    width: 100vw;
+    // CSS Shapes plus clip path to cut the viewport diagonally in half
+    float: right;
+    shape-outside: polygon(0 0, 100% 0, 100% 100%, 0 0);
+    shape-margin: 2em;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+
+    @media (min-width: 720px) {
+        height: 20vh;
+    }
+
+    @media (min-width: 1000px) {
+        height: 50vh;
+    }
+
+    @media (min-width: 1000px) and (min-height: 720px) {
+        height: 100vh;
+    }
 }
 
-.⚛ {
-    background-color: rgba($color-text-background, 0.9);
-    max-width: 38em;
-    padding: 1.5em;
+main {
+    background-color: black;
+    min-height: 100vh;
+    padding: 8vh 2em 1.5em;
+    width: 95vw;
 
-    @media (min-width: 48em) {
-        background-color: $color-text-background;
+    @media (min-width: 1000px) {
+        width: 50vw;
+    }
+
+    @media (min-width: 1000px) and (min-height: 720px) {
+        padding-top: 20vh;
+    }
+
+    // Sensible line lengths
+    > div {
+        max-width: 34em;
+    }
+
+    // Text face
+    p:first-child::before {
+        content: "ᕙ(⇀‸↼‶)ᕗ";
+        display: block;
+        font-family: monospace;
+        font-size: 1.6em;
+        margin-bottom: 1em;
+
+        @media (min-width: 400px) {
+            content: "(~˘▾˘)~";
+        }
+
+        @media (min-width: 600px) {
+            content: "╚(ಠ_ಠ)=┐";
+        }
+
+        @media (min-width: 800px) {
+            content: "(ง'̀-'́)ง";
+        }
+
+        @media (min-width: 1000px) {
+            content: "ಠ_ಠ";
+        }
+
+        @media (min-width: 1200px) {
+            content: "(¬_¬)";
+        }
     }
 
     ul {
-        margin-left: 0;
-        padding-left: 0;
+        margin: 0;
+        margin-top: 3em;
+        padding: 0;
+
+        @media (min-width: 1000px) and (min-height: 720px) {
+            bottom: 1.5em;
+            left: 2em;
+            position: absolute;
+            margin-top: 0;
+        }
     }
 
     li {
