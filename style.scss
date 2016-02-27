@@ -1,3 +1,16 @@
+// sass --watch style.scss:style.css --style compressed
+
+// Main breakpoints
+$bp-width: 62.5em;  // 1000px
+$bp-tall: 45em;     // 720px
+
+// Main colours
+$text-color: white;
+$body-bg: antiquewhite;
+$css-shape: crimson;
+$content-area: black;
+$link-underline: #333;
+
 body,
 html {
     margin: 0;
@@ -6,12 +19,11 @@ html {
 }
 
 html {
-    background-color: antiquewhite;
+    background-color: $body-bg;
     box-sizing: border-box;
-    color: white;
-    font-family: "Helvetica Neue", sans-serif;
-    font-size: 1.1em;
-    font-weight: 100;
+    color: $text-color;
+    font-family: monospace;
+    font-size: 1.2em;
     font-kerning: normal;
     line-height: 1.6;
 }
@@ -23,58 +35,77 @@ html {
 }
 
 a {
-    border-bottom: 1px solid #333;
-    font-weight: 300;
+    border-bottom: 1px solid $link-underline;
     padding-bottom: 0.1em;
     transition: border-color 0.1s ease-in;
 
     &,
     &:hover,
     &:focus {
-        color: white;
+        color: $text-color;
         text-decoration: none;
     }
 
     &:hover,
     &:focus {
-        border-color: crimson;
+        border-color: $css-shape;
     }
 }
 
 body > div {
-    background-color: crimson;
+    background-color: $css-shape;
     height: 5vh;
     width: 100vw;
+
     // CSS Shapes plus clip path to cut the viewport diagonally in half
-    float: right;
-    shape-outside: polygon(0 0, 100% 0, 100% 100%, 0 0);
-    shape-margin: 2em;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+    @supports
+        (shape-outside: polygon(0 0, 100% 0, 100% 100%, 0 0)) and
+        (shape-margin: 2em) and
+        (
+            (clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0)) or
+            (-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0))
+        )
+         {
+            float: right;
+            shape-outside: polygon(0 0, 100% 0, 100% 100%, 0 0);
+            shape-margin: 2em;
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
 
-    @media (min-width: 720px) {
-        height: 20vh;
-    }
+            @media (min-width: $bp-tall) {
+                height: 20vh;
+            }
 
-    @media (min-width: 1000px) {
-        height: 50vh;
-    }
+            @media (min-width: $bp-width) {
+                height: 50vh;
+            }
 
-    @media (min-width: 1000px) and (min-height: 720px) {
-        height: 100vh;
+            @media (min-width: $bp-width) and (min-height: $bp-tall) {
+                height: 100vh;
+            }
     }
 }
 
 main {
-    background-color: black;
-    min-height: 100vh;
+    background-color: $content-area;
+    min-height: 95vh;
     padding: 8vh 2em 1.5em;
     width: 95vw;
 
-    @media (min-width: 1000px) {
+    @supports
+        (shape-outside: polygon(0 0, 100% 0, 100% 100%, 0 0)) and
+        (shape-margin: 2em) and
+        (
+            (clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0)) or
+            (-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0))
+        ) {
+        min-height: 100vh;
+    }
+
+    @media (min-width: $bp-width) {
         width: 50vw;
     }
 
-    @media (min-width: 1000px) and (min-height: 720px) {
+    @media (min-width: $bp-width) and (min-height: $bp-tall) {
         padding-top: 20vh;
     }
 
@@ -91,23 +122,23 @@ main {
         font-size: 1.6em;
         margin-bottom: 1em;
 
-        @media (min-width: 400px) {
+        @media (min-width: 25em) {
             content: "(~˘▾˘)~";
         }
 
-        @media (min-width: 600px) {
+        @media (min-width: 37.5em) {
             content: "╚(ಠ_ಠ)=┐";
         }
 
-        @media (min-width: 800px) {
+        @media (min-width: 50em) {
             content: "(ง'̀-'́)ง";
         }
 
-        @media (min-width: 1000px) {
+        @media (min-width: $bp-width) {
             content: "ಠ_ಠ";
         }
 
-        @media (min-width: 1200px) {
+        @media (min-width: 75em) {
             content: "(¬_¬)";
         }
     }
@@ -117,7 +148,7 @@ main {
         margin-top: 3em;
         padding: 0;
 
-        @media (min-width: 1000px) and (min-height: 720px) {
+        @media (min-width: $bp-width) and (min-height: $bp-tall) {
             bottom: 1.5em;
             left: 2em;
             position: absolute;
@@ -129,7 +160,7 @@ main {
         display: inline-block;
 
         &:not(:last-child)::after {
-            content: " /";
+            content: " / ";
         }
     }
 }
