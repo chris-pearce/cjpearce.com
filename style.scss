@@ -6,10 +6,24 @@ $bp-tall: 45em;     // 720px
 
 // Main colours
 $text-color: white;
-$body-bg: antiquewhite;
-$css-shape: crimson;
+$body-bg: black;
+$css-shape: dimgray;
 $content-area: black;
-$link-underline: #333;
+$link-underline: $text-color;
+
+// Regular
+@font-face {
+  font-family: "Source Sans Pro";
+  src:
+      local("Source Sans Pro Regular"),
+      local("SourceSansPro-Regular"),
+      local("Source-Sans-Pro-Regular"),
+      url("source-sans-pro/sourcesanspro-regular.woff2") format("woff2"),
+      url("source-sans-pro/sourcesanspro-regular.woff") format("woff"),
+      url("source-sans-pro/sourcesanspro-regular.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+}
 
 body,
 html {
@@ -22,10 +36,11 @@ html {
     background-color: $body-bg;
     box-sizing: border-box;
     color: $text-color;
-    font-family: monospace;
-    font-size: 1.2em;
+    font-family: "Source Sans Pro", sans-serif;
     font-kerning: normal;
-    line-height: 1.6;
+    font-size: 1.05em;
+    font-weight: 400;
+    line-height: 1.8;
 }
 
 *,
@@ -35,25 +50,21 @@ html {
 }
 
 a {
-    border-bottom: 1px solid $link-underline;
-    padding-bottom: 0.1em;
-    transition: border-color 0.1s ease-in;
-
-    &,
-    &:hover,
-    &:focus {
-        color: $text-color;
-        text-decoration: none;
-    }
+    color: lightblue;
+    text-decoration: none;
+    transition: all 0.05s ease-in;
 
     &:hover,
     &:focus {
-        border-color: $css-shape;
+        background-color: lightblue;
+        color: black;
     }
 }
 
 body > div {
     background-color: $css-shape;
+    // background: $css-shape url("bg.jpg") no-repeat 100% 100%;
+    // background-size: cover;
     height: 5vh;
     width: 100vw;
 
@@ -64,8 +75,7 @@ body > div {
         (
             (clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0)) or
             (-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0))
-        )
-         {
+        ) {
             float: right;
             shape-outside: polygon(0 0, 100% 0, 100% 100%, 0 0);
             shape-margin: 2em;
@@ -89,11 +99,11 @@ main {
     background-color: $content-area;
     min-height: 95vh;
     padding: 8vh 2em 1.5em;
-    width: 95vw;
+    //width: 95vw;
+    width: 100vw;
 
     @supports
         (shape-outside: polygon(0 0, 100% 0, 100% 100%, 0 0)) and
-        (shape-margin: 2em) and
         (
             (clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0)) or
             (-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0))
@@ -101,9 +111,9 @@ main {
         min-height: 100vh;
     }
 
-    @media (min-width: $bp-width) {
-        width: 50vw;
-    }
+    // @media (min-width: $bp-width) {
+    //     width: 50vw;
+    // }
 
     @media (min-width: $bp-width) and (min-height: $bp-tall) {
         padding-top: 20vh;
