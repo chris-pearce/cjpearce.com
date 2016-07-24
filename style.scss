@@ -1,46 +1,40 @@
 // sass --watch style.scss:style.css --style compressed
 
-// Main breakpoints
-$bp-width: 62.5em;  // 1000px
-$bp-tall: 45em;     // 720px
+/**
+ * Settings.
+ */
 
-// Main colours
-$text-color: white;
-$body-bg: black;
-$css-shape: dimgray;
-$content-area: black;
-$link-underline: $text-color;
+$color-text: #333;
 
-// Regular
-@font-face {
-  font-family: "Source Sans Pro";
-  src:
-      local("Source Sans Pro Regular"),
-      local("SourceSansPro-Regular"),
-      local("Source-Sans-Pro-Regular"),
-      url("source-sans-pro/sourcesanspro-regular.woff2") format("woff2"),
-      url("source-sans-pro/sourcesanspro-regular.woff") format("woff"),
-      url("source-sans-pro/sourcesanspro-regular.ttf") format("ttf");
-  font-weight: 400;
-  font-style: normal;
-}
+$color-link: brown;
 
-body,
-html {
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
+$color-page-background: whitesmoke;
+
+$color-page-about-background: #000;
+
+$color-page-about-text: darkseagreen;
+
+$color-header-text: #fff;
+
+$font-weight-normal: 400;
+
+$font-weight-bold: 800;
+
+$font-weight-light: 100;
+
+
+/**
+ * Base styles.
+ */
 
 html {
-    background-color: $body-bg;
+    background: $color-page-background;
     box-sizing: border-box;
-    color: $text-color;
-    font-family: "Source Sans Pro", sans-serif;
-    font-kerning: normal;
-    font-size: 1.05em;
-    font-weight: 400;
-    line-height: 1.8;
+    color: $color-text;
+    font-family: "Taviraj";
+    //font-kerning: normal;
+    font-size: 1.3em;
+    line-height: 1.7;
 }
 
 *,
@@ -49,128 +43,215 @@ html {
     box-sizing: inherit;
 }
 
+body,
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
+p {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+h1 {
+    font-weight: $font-weight-normal;
+}
+
 a {
-    color: lightblue;
+    color: $color-link;
     text-decoration: none;
-    transition: all 0.05s ease-in;
+}
+
+p:not(:last-child),
+ul:not(:last-child),
+ol:not(:last-child) {
+    margin-bottom: 1.5em;
+}
+
+ul,
+ol {
+    list-style-position: inside;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+strong {
+    font-weight: $font-weight-bold;
+}
+
+
+/**
+ * Header.
+ */
+
+.l-header {
+    animation-name: clip-path;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    align-items: baseline;
+    background-color: $color-page-about-background;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1.5em 2.5em;
+}
+
+@keyframes clip-path {
+    0% {
+        -webkit-clip-path: polygon(0 0, 100% 0, 0% 100%, 100% 100%);
+    }
+
+    20% {
+        -webkit-clip-path: polygon(0 0, 100% 0, 0% 100%, 100% 100%);
+    }
+
+    36% {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    99.5% {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    100% {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 92%);
+    }
+}
+
+.l-header-wrap {
+    animation-name: clip-path2;
+    animation-delay: 1.15s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    background-color: $color-page-about-text;
+    //background-color: lightseagreen;
+}
+
+@keyframes clip-path2 {
+    from {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    to {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 92%);
+    }
+}
+
+.page-about .l-header {
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 3.5em;
+}
+
+.l-header__author,
+.l-header__nav,
+.l-header__headline {
+    animation-name: fade-in;
+    animation-delay: 1.15s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    opacity: 0;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/**
+ * Author.
+ */
+
+.l-header__author {
+    color: $color-header-text;
+}
+
+/**
+ * Navigation.
+ */
+
+.l-header__nav ul {
+    display: flex;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+.l-header__nav li {
+    display: flex;
+
+    &:not(:last-child)::after {
+        color: $color-header-text;
+        content: "\00a0/\00a0";
+    }
+}
+
+.l-header__nav a {
+    color: $color-header-text;
+    text-decoration: none;
+    transition: color 0.15s ease;
 
     &:hover,
-    &:focus {
-        background-color: lightblue;
-        color: black;
+    &:focus,
+    &.is-active {
+        color: $color-page-about-text;
     }
 }
 
-body > div {
-    background-color: $css-shape;
-    // background: $css-shape url("bg.jpg") no-repeat 100% 100%;
-    // background-size: cover;
-    height: 5vh;
-    width: 100vw;
+/**
+ * Headline.
+ */
 
-    // CSS Shapes plus clip path to cut the viewport diagonally in half
-    @supports
-        (shape-outside: polygon(0 0, 100% 0, 100% 100%, 0 0)) and
-        (shape-margin: 2em) and
-        (
-            (clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0)) or
-            (-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0))
-        ) {
-            float: right;
-            shape-outside: polygon(0 0, 100% 0, 100% 100%, 0 0);
-            shape-margin: 2em;
-            -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
-
-            @media (min-width: $bp-tall) {
-                height: 20vh;
-            }
-
-            @media (min-width: $bp-width) {
-                height: 50vh;
-            }
-
-            @media (min-width: $bp-width) and (min-height: $bp-tall) {
-                height: 100vh;
-            }
-    }
+.l-header__headline {
+    color: $color-page-about-text;
+    font-size: 2.2em;
+    font-style: italic;
+    font-weight: $font-weight-light;
+    line-height: 1.3;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 40ch;
+    padding-top: 1.5em;
+    text-align: center;
 }
 
-main {
-    background-color: $content-area;
-    min-height: 95vh;
-    padding: 8vh 2em 1.5em;
-    //width: 95vw;
-    width: 100vw;
 
-    @supports
-        (shape-outside: polygon(0 0, 100% 0, 100% 100%, 0 0)) and
-        (
-            (clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0)) or
-            (-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0))
-        ) {
-        min-height: 100vh;
-    }
+/**
+ * Main content.
+ */
 
-    // @media (min-width: $bp-width) {
-    //     width: 50vw;
-    // }
+.l-main {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 54ch;
+    padding: 3em 0 5em;
+}
 
-    @media (min-width: $bp-width) and (min-height: $bp-tall) {
-        padding-top: 20vh;
-    }
 
-    // Sensible line lengths
-    > div {
-        max-width: 34em;
-    }
+/**
+ * Personal photo gallery.
+ *
+ * 1000px = width
+ * 531px = left col
+ * 464px = right col
+ */
 
-    // Text face
-    p:first-child::before {
-        content: "ᕙ(⇀‸↼‶)ᕗ";
-        display: block;
-        font-family: monospace;
-        font-size: 1.6em;
-        margin-bottom: 1em;
+.c-personal-photo-gallery {
 
-        @media (min-width: 25em) {
-            content: "(~˘▾˘)~";
-        }
-
-        @media (min-width: 37.5em) {
-            content: "╚(ಠ_ಠ)=┐";
-        }
-
-        @media (min-width: 50em) {
-            content: "(ง'̀-'́)ง";
-        }
-
-        @media (min-width: $bp-width) {
-            content: "ಠ_ಠ";
-        }
-
-        @media (min-width: 75em) {
-            content: "(¬_¬)";
-        }
-    }
-
-    ul {
-        margin: 0;
-        margin-top: 3em;
-        padding: 0;
-
-        @media (min-width: $bp-width) and (min-height: $bp-tall) {
-            bottom: 1.5em;
-            left: 2em;
-            position: absolute;
-            margin-top: 0;
-        }
-    }
-
-    li {
-        display: inline-block;
-
-        &:not(:last-child)::after {
-            content: " / ";
-        }
-    }
 }
