@@ -1,0 +1,152 @@
+/* ============================================================================
+   @SETTINGS
+   ========================================================================= */
+
+
+/**
+ * All project specific settings.
+ */
+
+
+/* Typography
+   ========================================================================= */
+
+
+/**
+ * Font families.
+ */
+
+// This is the font you see whilst waiting for the Merriweather custom font to
+// load (`$font-family-base`)
+$font-family-base-custom:   Merriweather, Georgia, Palatino, "Hoefler Text",
+                            Baskerville, serif;
+
+$font-family-sans-serif:    "HelveticaNeue-Light", "Helvetica Neue Light",
+                            "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+
+/**
+ * Weights for custom font: Merriweather.
+ */
+
+$font-weight-normal:  400;
+
+$font-weight-bold:    700;
+
+
+/* Colours
+   ========================================================================= */
+
+/**
+ * White.
+ */
+
+$color-white: #fff;
+
+
+/**
+ * Tundora.
+ *
+ * http://chir.ag/projects/name-that-color/#444444
+ */
+
+$color-tundora: #444;
+
+/**
+ * Brand.
+ *
+ * http://chir.ag/projects/name-that-color/#BF2F44
+ */
+
+$color-brick-red: #bf2f44;
+
+
+/**
+ * Wild watermelon.
+ *
+ * http://chir.ag/projects/name-that-color/#FD536F
+ */
+
+$color-wild-watermelon: #fd536f;
+
+
+/**
+ * Sun.
+ *
+ * http://chir.ag/projects/name-that-color/#F9AC0A
+ */
+
+$color-sun: #f9ac0a;
+
+
+/**
+ * Greys.
+ */
+
+// Concrete
+// http://chir.ag/projects/name-that-color/#F2F2F2
+$color-grey-concrete: #f2f2f2;
+
+// Scorpion
+// http://chir.ag/projects/name-that-color/#595959
+$color-grey-scorpion: #595959;
+
+
+/**
+ * Tropical gradients.
+ */
+
+$color-gradient-tropical: linear-gradient(
+  -90deg,
+  $color-sun 0%,
+  $color-wild-watermelon 50%,
+  $color-brick-red 100%
+);
+
+$color-gradient-tropical-alt: linear-gradient(
+  90deg,
+  $color-sun 0%,
+  $color-wild-watermelon 42%,
+  $color-brick-red 66%,
+  $color-brick-red 100%
+);
+
+
+/**
+ * Main content area background.
+ */
+
+$color-main-content-area-background: $color-white;
+
+/**
+ * Solarized dark colour palette.
+ */
+
+$color-solarized-dark-base03:  #002b36;
+
+$color-solarized-dark-base01:  #586e75;
+
+$color-solarized-dark-base1:   #93a1a1;
+
+$color-solarized-dark-orange:  #cb4b16;
+
+$color-solarized-dark-red:     #dc322f;
+
+$color-solarized-dark-blue:    #268bd2;
+
+$color-solarized-dark-cyan:    #2aa198;
+
+$color-solarized-dark-green:   #859900;
+
+
+
+
+/* Other
+   ========================================================================= */
+
+
+/**
+ * Fixed site header height.
+ */
+
+$fixed-site-header-height: 50;

@@ -1,0 +1,26 @@
+/* ============================================================================
+   @COMPONENTS -> BUTTON
+   ========================================================================= */
+
+
+/**
+ * Main button component.
+ *
+ * N.B. this builds on top of the Scally button component.
+ */
+
+
+.c-button {
+  @extend %font-family-sans-serif;
+  padding: to-rem($spacing-half) to-rem($spacing-base-plus-half);
+  transition: all 0.1s;
+
+  &:hover,
+  &:focus {
+    background-color: rgba($color-white, 0.1);
+  }
+
+  &:active {
+    box-shadow: inset 0 2px 4px rgba($color-tundora, 0.1);
+  }
+}

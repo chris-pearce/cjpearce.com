@@ -1,0 +1,49 @@
+{
+  "name": "chris-pearce-me",
+  "version": "0.0.0",
+  "description": "Personal website of Chris Pearce",
+  "homepage": "http://chris-pearce.me",
+  "author": [
+    {
+      "name": "Chris Pearce",
+      "email": "hi@chris-pearce.me",
+      "url": "http://chris-pearce.me"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:chris-pearce/chris-pearce.me.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chris-pearce/chris-pearce.me/issues"
+  },
+  "license": "The MIT License (MIT)",
+  "devDependencies": {
+    "autoprefixer": "^6.4.1",
+    "cssnano": "^3.7.5",
+    "fontfaceobserver": "^2.0.4",
+    "grunt": "^1.0.1",
+    "grunt-build-control": "^0.7.1",
+    "grunt-cache-bust": "^1.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-htmlmin": "^2.0.0",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-critical": "^1.0.1",
+    "grunt-jekyll": "^0.4.4",
+    "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^1.2.1",
+    "grunt-svgmin": "^4.0.0",
+    "grunt-uncss": "^0.6.1",
+    "postcss": "^5.2.0",
+    "postcss-scss": "^0.3.0",
+    "scally": "latest",
+    "shell-csslib": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}

@@ -1,0 +1,169 @@
+/* ============================================================================
+   @CORE -> BASE -> HEADINGS
+   ========================================================================= */
+
+
+/**
+ * All these base headings are scoped to classes so that the Scally base
+ * heading styles can be seen in the demo's.
+ */
+
+
+/**
+ * Settings.
+ */
+
+$heading-font-size-1:       46;
+
+$heading-font-size-2:       40;
+
+$heading-font-size-3:       35;
+
+$heading-font-size-4:       28;
+
+$heading-font-size-5:       20;
+
+$heading-font-size-6:       $font-size;
+
+$heading-anchor-icon-size:  24px;
+
+
+/**
+ * Apply common treatments.
+ */
+
+// Line height
+.hdg-1,
+.hdg-2,
+.hdg-3,
+.hdg-4,
+.hdg-5,
+.hdg-6 {
+  line-height: 1.5;
+}
+
+// Colour and relative positioning
+.hdg-3,
+.hdg-4,
+.hdg-5,
+.hdg-6 {
+  color: $color-black;
+  // This is needed to position the anchor element
+  position: relative;
+}
+
+// Font weights
+.hdg-2,
+.hdg-3,
+.hdg-4 {
+  font-weight: 300;
+}
+
+.hdg-5,
+.hdg-6 {
+  font-weight: 900;
+}
+
+
+/**
+ * H1.
+ */
+
+.hdg-1 {
+  font-size: to-rem($heading-font-size-1);
+  font-weight: $font-weight-bold;
+}
+
+
+/**
+ * H2.
+ */
+
+.hdg-2 {
+  background-image: $color-gradient-tropical;
+  font-size: to-rem($heading-font-size-2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/**
+ * H3.
+ */
+
+.hdg-3 {
+  font-size: to-rem($heading-font-size-3);
+}
+
+
+/**
+ * H4.
+ */
+
+.hdg-4 {
+  font-size: to-rem($heading-font-size-4);
+}
+
+
+/**
+ * H5.
+ */
+
+.hdg-5 {
+  font-size: to-rem($heading-font-size-5);
+}
+
+
+/**
+ * H6.
+ */
+
+.hdg-6 {
+  color: $color-brick-red;
+  font-size: to-rem($heading-font-size-6);
+}
+
+
+/**
+ * Nested anchor element.
+ */
+
+.section-anchor {
+  bottom: 2px;
+  left: -36px;
+  line-height: 0;
+  padding: 8px 6px;
+  position: absolute;
+  transition: none;
+
+
+  /**
+   * Different positioning for the `h4`–`h6` headings.
+   */
+
+  .hdg-4 & {
+    bottom: -2px;
+  }
+
+  .hdg-5 & {
+    bottom: -9px;
+  }
+
+
+  /**
+   * The link icon.
+   */
+
+  svg {
+    fill: $color-grey-scorpion;
+    height: $heading-anchor-icon-size;
+    opacity: 0.25;
+    transition: opacity 0.15s;
+    width: $heading-anchor-icon-size;
+  }
+
+  &:hover svg,
+  &:focus svg {
+    opacity: 1;
+  }
+}

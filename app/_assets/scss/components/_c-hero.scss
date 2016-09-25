@@ -1,0 +1,132 @@
+/* ============================================================================
+   @COMPONENTS -> HERO
+   ========================================================================= */
+
+
+/**
+ * Hero banner that is featured on the home page.
+ */
+
+
+/**
+ * Settings.
+ */
+
+$c-hero-install-item-padding-ends:  6;
+
+$c-hero-install-item-padding-sides: 12;
+
+
+.c-hero {
+  @extend %font-family-sans-serif;
+  @include to-rem(padding-top, $spacing-double - $fixed-site-header-height);
+  @include to-rem(padding-bottom, $spacing-double);
+  background: $color-brick-red $color-gradient-tropical;
+  text-align: center;
+
+  @include respond-to(lap) {
+    @include to-rem(padding-top, $spacing-quadruple + $spacing-base - $fixed-site-header-height);
+    @include to-rem(padding-bottom, $spacing-quadruple + $spacing-base);
+  }
+
+
+  /**
+   * Base + link colours.
+   */
+
+  &,
+  a {
+    color: $color-white;
+  }
+
+  a:hover,
+  a:focus {
+    color: $color-grey-concrete;
+  }
+}
+
+
+/**
+ * Logo.
+ */
+
+.c-hero__logo {
+  width: 251px;
+  height: 92px;
+  max-width: 80%;
+  fill: $color-white;
+
+  @include respond-to(lap) {
+    max-width: 100%;
+  }
+}
+
+
+/**
+ * The slogan.
+ */
+
+.c-hero__slogan {
+  @include to-rem(margin-top, $spacing-double);
+}
+
+
+/**
+ * Install.
+ */
+
+.c-hero__install {
+  @extend %bottom-spacing;
+
+  > li {
+    @include to-rem(margin-bottom, $spacing-third);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include respond-to(401) {
+      @include to-rem(margin-right, $spacing-third);
+    }
+
+    @include respond-to(lap) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/**
+ * Install items.
+ */
+
+// `kbd`
+.c-hero__install__item {
+  @include to-rem(padding, $c-hero-install-item-padding-ends $c-hero-install-item-padding-sides);
+  background-color: $color-black;
+  border-radius: $c-button-rounded-corners-size;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+// link
+.c-hero__install__link {
+  @include to-rem(padding, $c-hero-install-item-padding-ends + 3 $c-hero-install-item-padding-sides);
+}
+
+
+/**
+ * Version number, CHANGELOG and GitHub links.
+ */
+
+.c-hero__version {
+  @include font-size($font-size-small);
+
+  a {
+    @include to-rem(margin-right, $spacing-half);
+    display: inline-block;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,0 +1,400 @@
+---
+layout:             default
+title:              "Documentation for the Core section"
+excerpt:            "Documentation for the Core section, Scally core is the
+                    foundation of a project’s UI build."
+exclude_from_nav:   true
+section:            2
+---
+
+
+<!-- Section Nav -->
+{% include section-nav.html %}
+<!-- //Section Nav -->
+
+
+<h2 id="core" class="hdg-2">Core</h2>
+
+<h3 id="table-of-contents" class="hdg-3">
+  Table Of Contents
+  {% include heading-anchor.html id="table-of-contents" heading="Table of contents" %}
+</h3>
+
+<ol class="o-list  u-s-mb-large">
+  <li><a href="#what-is-it">What Is It?</a></li>
+  <li><a href="#the-breakdown">The Breakdown</a></li>
+  <li><a href="#normalize">normalize.css</a></li>
+  <li><a href="#reset">Reset</a></li>
+  <li><a href="#specificity">Specificity</a></li>
+  <li>
+    <a href="#base">Base</a>
+    <ol>
+      <li><a href="#sensible-styles">Sensible Styles</a></li>
+      <li><a href="#normalize-esque-styles">Normalize-esque Styles</a></li>
+      <li>
+        <a href="#other-noteworthy-parts-of-base">Other Noteworthy Parts Of Base</a>
+        <ol>
+          <li><a href="#responsive-images">Responsive Images</a></li>
+          <li><a href="#print">Print</a></li>
+          <li><a href="#root">Root</a></li>
+          <li><a href="#forms">Forms</a></li>
+        </ol>
+      </li>
+      <li>
+        <a href="#demos">Demos</a>
+        <ol>
+          <li><a href="#demos-abbreviation">Abbreviation</a></li>
+          <li><a href="#demos-details">Details</a></li>
+          <li><a href="#demos-forms">Forms</a></li>
+          <li><a href="#demos-headings">Headings</a></li>
+          <li><a href="#demos-horizontal-rule">Horizontal Rule</a></li>
+          <li><a href="#demos-links">Links</a></li>
+          <li><a href="#demos-media">Media</a></li>
+          <li><a href="#demos-paragraphs">Paragraphs</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><a href="#functions">Functions</a>
+    <ol>
+      <li><a href="#demos-convert-px-to-em-rem">Convert Pixels To <code class="c-inline-code">em</code> Or <code class="c-inline-code">rem</code> Units</a></li>
+      <li><a href="#demos-maths-helpers">Maths Helpers</a></li>
+      <li><a href="#demos-string-replace">String Replace</a></li>
+      <li><a href="#demos-strip-unit">Strip Unit</a></li>
+      <li><a href="#demos-tint-shade">Tint &amp; Shade</a></li>
+    </ol>
+  </li>
+</ol>
+
+
+
+
+
+<!-- Intro -->
+<section class="c-content-section">
+
+  <h3 id="what-is-it" class="hdg-3">
+    What Is It?
+    {% include heading-anchor.html id="what-is-it" heading="What Is It?" %}
+  </h3>
+
+  <p>Scally Core is the foundation of a project’s UI build providing things like:</p>
+
+  <ul class="o-list">
+    <li>Sensible global styles.</li>
+    <li>Global settings (Sass variables).</li>
+    <li>Handy Sass functions and mixins.</li>
+    <li>Global Sass silent placeholder selectors.</li>
+    <li>A powerful reset, and <a href="http://necolas.github.io/normalize.css/" rel="external">normalize.css</a>.</li>
+  </ul>
+
+  <div class="c-alert  u-s-me-large">
+    <div class="c-alert__inner">
+      <svg aria-hidden="true" class="c-alert__icon">
+        <use xlink:href="#alert-icon" />
+      </svg>
+      <p>Without Core Scally won’t work. It is the only mandatory part of the framework.</p>
+    </div>
+  </div>
+
+  <h3 id="the-breakdown" class="hdg-3">
+    The Breakdown
+    {% include heading-anchor.html id="the-breakdown" heading="The Breakdown" %}
+  </h3>
+
+  <p>Core is broken down into the following sections:</p>
+
+  <ul class="o-list">
+    <li><a href="#base">Base</a></li>
+    <li><a href="#functions">Functions</a></li>
+    <li><a href="#mixins">Mixins</a></li>
+    <li><a href="#placeholders">Placeholders</a></li>
+    <li><a href="#settings">Settings</a></li>
+  </ul>
+
+  <p>And a few things not sectioned:</p>
+
+  <h3 id="normalize" class="hdg-3">
+    normalize.css
+    {% include heading-anchor.html id="normalize" heading="normalize.css" %}
+  </h3>
+
+  <p><a href="http://necolas.github.io/normalize.css/">normalize.css</a> is a third party solution. Scally always makes sure it’s using the latest version.</p>
+
+  {% include view-source-code-link.html url="https://github.com/chris-pearce/scally/blob/master/core/_normalize.scss" %}
+
+  <h3 id="reset" class="hdg-3">
+    Reset
+    {% include heading-anchor.html id="reset" heading="Reset" %}
+  </h3>
+
+  <p>In addition to <a href="http://necolas.github.io/normalize.css/">normalize.css</a> Scally also provides a powerful reset, resetting things like:</p>
+
+  <ul class="o-list">
+    <li><code class="c-inline-code">margin</code>, <code class="c-inline-code">padding</code>, and <code class="c-inline-code">border</code> to zero, for <strong>ALL</strong> HTML elements.</li>
+    <li><code class="c-inline-code">box-sizing</code> to the more friendly <code class="c-inline-code">border-box</code> value.</li>
+    <li>No bullets for unordered (<code class="c-inline-code">ul</code>) and ordered (<code class="c-inline-code">ol</code>) lists.</li>
+  </ul>
+
+  {% include view-source-code-link.html url="https://github.com/chris-pearce/scally/blob/master/core/_reset.scss" %}
+
+  <h3 id="specificity" class="hdg-3">
+    Specificity
+    {% include heading-anchor.html id="specificity" heading="Specificity" %}
+  </h3>
+
+  <p>Scally Core is the foundation of the framework therefore it sits right at the bottom when it comes to specificity (CSS’ first C; the cascade) as any styles defined in Core need to be easily overridden.</p>
+  <p>That’s why Core is declared first when pulling in the Scally framework via your <a href="#">master stylesheet</a> so it’s compiled before everything else.</p>
+
+</section>
+<!-- //Intro -->
+
+
+
+
+<!-- Base -->
+<section class="c-content-section">
+
+  <h3 id="base" class="hdg-3">
+    Base
+    {% include heading-anchor.html id="base" heading="Base" %}
+  </h3>
+
+  <p>The Base section provides very basic styling that most UI’s will need. These styles are applied at the most global level, with most being applied via element selectors, e.g.</p>
+
+<div class="u-s-mb-base">
+{% highlight scss %}
+abbr[title] {
+  cursor: help;
+}
+{% endhighlight %}
+</div>
+
+  <p>Everything in Base needs to be easily overridden which is really easy to do as everything in Base sits right at the bottom in terms of Scally’s specificity (CSS’ first C; the cascade) and any of the more opinionated styles sit behind a toggle setting, e.g.</p>
+
+<div class="u-s-mb-base">
+{% highlight scss %}
+$apply-paragraph-bottom-margin: true !default;
+
+@if $apply-paragraph-bottom-margin {
+  p {
+    @extend %bottom-spacing;
+  }
+}
+{% endhighlight %}
+</div>
+
+  <h4 id="sensible-styles" class="hdg-4">
+    Sensible Styles
+    {% include heading-anchor.html id="sensible-styles" heading="Sensible Styles" %}
+  </h4>
+
+  <p>Base styles try to be as unopinionated as possible—like most things in Scally—with most applying sensible styles that you’d expect to find in a user agent stylesheet, like:</p>
+
+  <ul class="o-list">
+    <li>Applying <code class="c-inline-code">cursor: help</code> to abbreviations (<code class="c-inline-code">abbr</code>) that have a <code class="c-inline-code">title</code> attribute.</li>
+    <li>Applying <code class="c-inline-code">cursor: pointer</code> to <code class="c-inline-code">summary</code> and <code class="c-inline-code">label</code> elements.</li>
+    <li>Removing the gap between media elements (<code class="c-inline-code">img</code>, <code class="c-inline-code">video</code>, <code class="c-inline-code">audio</code>, etc) and the bottom of their containers.</li>
+    <li>Applying a bottom margin to all paragraphs (<code class="c-inline-code">p</code>) of text.</li>
+  </ul>
+
+  <h4 id="normalize-esque-styles" class="hdg-4">
+    Normalize-esque Styles
+    {% include heading-anchor.html id="normalize-esque-styles" heading="Normalize-esque Styles" %}
+  </h4>
+
+  <p>Base also provides <a href="http://necolas.github.io/normalize.css/" rel="external">normalize.css</a>-esque styles like:</p>
+
+  <ul class="o-list">
+    <li>Remove rounded corners from iOS search inputs and input buttons.</li>
+    <li>Remove the top inner shadow from iOS inputs.</li>
+    <li>Set the default behaviour for touch-based browsing in IE 10 on devices running Windows 8.</li>
+    <li>Hide the close button generated by IE 10+ for inputs.</li>
+  </ul>
+
+  <p>Some of the above are optional via a toggle setting.</p>
+
+  <h4 id="other-noteworthy-parts-of-base" class="hdg-4">
+    Other Noteworthy Parts Of Base
+    {% include heading-anchor.html id="other-noteworthy-parts-of-base" heading="Other Noteworthy Parts Of Base" %}
+  </h4>
+
+  <h5 id="responsive-images" class="hdg-5">
+    Responsive Images
+    {% include heading-anchor.html id="responsive-images" heading="Responsive Images" %}
+  </h5>
+
+  <p>Scally—being a responsive-ready framework—sets all image elements (<code class="c-inline-code">img</code>) to be responsive by default, e.g.</p>
+
+<div class="u-s-mb-base">
+{% highlight scss %}
+img {
+  @if $responsive-images {
+    max-width: 100%;
+    height: auto;
+  }
+}
+{% endhighlight %}
+</div>
+
+  <p>However this is optional via a toggle setting.</p>
+
+  <h5 id="print" class="hdg-5">
+    Print
+    {% include heading-anchor.html id="print" heading="Print" %}
+  </h5>
+
+  <p>Scally provides some sensible global print styles, with most taken from the <a href="https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css" rel="external">HTML5 Boilerplate</a> print styles.</p>
+
+  <p>All print styles that aren’t defined at this global base level will live in their relevant Sass partial.</p>
+
+  <h5 id="root" class="hdg-5">
+    Root
+    {% include heading-anchor.html id="root" heading="Root" %}
+  </h5>
+
+  <p>Root defines styles for the <code class="c-inline-code">html</code> element. It mainly focuses on typography styles, e.g., setting font size, font family, line height, etc. Root also defines the global foreground colour which is inherited by all HTML elements, and the background colour of the <code class="c-inline-code">html</code> element itself.</p>
+
+  <h5 id="forms" class="hdg-5">
+    Forms
+    {% include heading-anchor.html id="forms" heading="Forms" %}
+  </h5>
+
+  <p>Scally provides quite a few Base form styles. Most are concerned with applying <a href="#sensible-styles">sensible styles</a> and <a href="#normalize-esque-styles">normalize-esque styles</a>.</p>
+
+  <p>The other two main parts of forms are concerned with providing styles for text inputs—including <code class="c-inline-code">textarea</code>—and <code class="c-inline-code">select</code> lists, and a disabled state for <strong>ALL</strong> HTML form elements. These styles—being fairly opinionated—are all optional behind toggle settings.</p>
+
+  <h4 id="demos" class="hdg-4">
+    Demos
+    {% include heading-anchor.html id="demos" heading="Demos" %}
+  </h4>
+
+  {% for demos in site.data.core-base-demos %}
+    <div class="c-demo-block" id="{{ demos.id }}">
+      {% if demos.heading %}
+        <h5 class="hdg-5  c-demo-block__title">
+          {{ demos.heading }}
+          <a href="#{{ demos.id }}" class="section-anchor">
+            <span class="u-hide-visually">Anchor to section "{{ demos.heading }}"</span>
+            <svg aria-hidden="true">
+              <use xlink:href="#link-icon" />
+            </svg>
+          </a>
+        </h5>
+      {% endif %}
+      <p class="c-demo-block__intro">{{ demos.intro }}</p>
+      <div class="c-demo-block__example">
+        <div class="c-demo-block__example__result c-demo-block__example__padded">
+          {{ demos.markup-1 }}
+        </div>
+        <div class="c-demo-block__example__code">
+{% highlight html %}
+{{ demos.markup-2 }}
+{% endhighlight %}
+        </div>
+      </div>
+      <div class="c-view-source-code">
+        <a href="{{ demos.source-code-url }}" rel="external" class="c-view-source-code__link">
+          <svg>
+            <use xlink:href="#github-icon" />
+          </svg>
+          <span>View source code</span>
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+
+  <p>The following Base items cannot be demo’d, follow their links to see the source code:</p>
+
+  <ul class="o-list">
+    <li><a href="https://github.com/chris-pearce/scally/blob/master/core/base/_print.scss" rel="external">Print</a></li>
+    <li><a href="https://github.com/chris-pearce/scally/blob/master/core/base/_root.scss" rel="external">Root</a></li>
+    <li><a href="https://github.com/chris-pearce/scally/blob/master/core/base/_viewport.scss" rel="external">Viewport</a></li>
+  </ul>
+
+</section>
+<!-- //Base -->
+
+
+<!-- Functions -->
+<section class="c-content-section">
+
+  <h3 id="functions" class="hdg-3">
+    Functions
+    {% include heading-anchor.html id="functions" heading="Functions" %}
+  </h3>
+
+  <p>Scally features a bunch of handy Sass functions to keep the framework more readable and DRY, by abstracting any common reusable logic.</p>
+
+  {% for demos in site.data.core-functions-demos %}
+    <div class="c-demo-block" id="{{ demos.id }}">
+      {% if demos.heading %}
+        <h4 class="hdg-5  c-demo-block__title">
+          {{ demos.heading }}
+          <a href="#{{ demos.id }}" class="section-anchor">
+            <span class="u-hide-visually">Anchor to section "{{ demos.heading }}"</span>
+            <svg aria-hidden="true">
+              <use xlink:href="#link-icon" />
+            </svg>
+          </a>
+        </h4>
+      {% endif %}
+      <p class="c-demo-block__intro">{{ demos.intro }}</p>
+{% highlight scss %}
+{{ demos.scss }}
+{% endhighlight %}
+      <div class="c-view-source-code">
+        <a href="{{ demos.source-code-url }}" rel="external" class="c-view-source-code__link">
+          <svg>
+            <use xlink:href="#github-icon" />
+          </svg>
+          <span>View source code</span>
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+<!-- //Functions -->
+
+
+
+
+<!-- Mixins -->
+<section class="c-content-section">
+
+  <h3 id="mixins" class="hdg-3">
+    Mixins
+    {% include heading-anchor.html id="mixins" heading="Mixins" %}
+  </h3>
+
+  <p>Scally features a bunch of handy Sass mixins. These mixins underpin many parts of the Scally framework and are required for many parts of the framework to work.</p>
+
+  {% for demos in site.data.core-mixins-demos %}
+    <div class="c-demo-block" id="{{ demos.id }}">
+      {% if demos.heading %}
+        <h4 class="hdg-5  c-demo-block__title">
+          {{ demos.heading }}
+          <a href="#{{ demos.id }}" class="section-anchor">
+            <span class="u-hide-visually">Anchor to section "{{ demos.heading }}"</span>
+            <svg aria-hidden="true">
+              <use xlink:href="#link-icon" />
+            </svg>
+          </a>
+        </h4>
+      {% endif %}
+      <p class="c-demo-block__intro">{{ demos.intro }}</p>
+{% highlight scss %}
+{{ demos.scss }}
+{% endhighlight %}
+      <div class="c-view-source-code">
+        <a href="{{ demos.source-code-url }}" rel="external" class="c-view-source-code__link">
+          <svg>
+            <use xlink:href="#github-icon" />
+          </svg>
+          <span>View source code</span>
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+<!-- //Functions -->

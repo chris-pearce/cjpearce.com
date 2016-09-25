@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en-au"{% if page.url %} class="s-view{{ page.url | remove: ".html" | replace: "/","-" }}"{% endif %}>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <script>{% include js/enhance.min.js %}</script>
+
+    <!-- DNS prefetching -->
+    <link rel="dns-prefetch" href="//platform.twitter.com">
+    <link rel="dns-prefetch" href="//syndication.twitter.com">
+    <link rel="dns-prefetch" href="//ghbtns.com">
+    <!-- //DNS prefetching -->
+
+    <!-- Description -->
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 240 }}{% else %}{{ site.description }}{% endif %}">
+    <!-- //Description -->
+
+    <!-- Twitter summary card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@scally_fw">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="twitter:image" content="/img/twitter-card.png">
+    <!-- //Twitter summary card -->
+  </head>
