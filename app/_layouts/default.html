@@ -2,30 +2,11 @@
 
   <body>
 
-    {% include svg-icons.html %}
-
     {% include header.html %}
 
-    <main role="main" id="main">
-      <article>
-
-        {% if page.home_page %}
-          {% include hero.html %}
-        {% else %}
-          {% include banner.html %}
-        {% endif %}
-
-        <!-- Content -->
-        <div class="c-main-content{% if page.landing_page %} c-main-content--landing{% endif %}">
-          <div class="c-main-content__inner  l-container{% if page.landing_page %} l-container--wide{% endif %}  u-position-relative">
-            {{ content }}
-          </div>
-        </div>
-        <!-- //Content -->
-      </article>
+    <main role="main" id="main" class="c-main">
+        {{ content }}
     </main>
-
-    {% include footer.html %}
 
     {% include scripts.html %}
 
