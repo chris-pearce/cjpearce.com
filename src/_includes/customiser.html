@@ -1,0 +1,118 @@
+<section class="customiser">
+    <h1
+        class="hide-visually"
+        id="customiser-heading"
+    >
+        Customise this site
+    </h1>
+
+    <button
+        aria-controls="customiser-menu"
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="Open the customisation menu"
+        class="customiser__trigger  js-customiser-trigger"
+        type="button"
+    >
+        <span aria-hidden="true">Customiser</span>
+    </button>
+
+    <div
+        aria-labelledby="customiser-heading"
+        class="customiser__menu  js-customiser-menu"
+        hidden
+        id="customiser-menu"
+        role="menu"
+    >
+
+        <div
+             aria-describedby="customiser-menu-group-themes"
+             class="customiser__menu-group  js-customiser-menu-group-themes"
+             role="group"
+        >
+            <div
+                class="customiser__menu-group-heading"
+                id="customiser-menu-group-themes"
+            >
+                Themes
+            </div>
+            <div
+                 class="js-customiser-menu-theme"
+                 role="menuitem"
+            >
+                Dark ale
+            </div>
+            <div
+                 class="js-customiser-menu-theme"
+                 role="menuitem"
+            >
+                Pale ale
+            </div>
+            <div
+                 class="js-customiser-menu-theme"
+                 role="menuitem"
+            >
+                White ale
+            </div>
+        </div>
+
+        <div role="seperator"></div>
+
+        <div
+             aria-describedby="customiser-menu-group-fonts"
+             class="customiser__menu-group  js-customiser-menu-group-fonts"
+             role="group"
+        >
+            <div
+                class="customiser__menu-group-heading"
+                id="customiser-menu-group-fonts"
+            >
+                Fonts
+            </div>
+            <div
+                 class="js-customiser-menu-font"
+                 role="menuitem"
+            >
+                System font
+            </div>
+            <div
+                 class="js-customiser-menu-font"
+                 role="menuitem"
+            >
+                Cursive
+            </div>
+        </div>
+
+        <div role="seperator"></div>
+
+        <div
+             aria-describedby="customiser-menu-group-colours"
+             class="customiser__menu-group  js-customiser-menu-group-colours"
+             role="group"
+        >
+            <div
+                class="customiser__menu-group-heading"
+                id="customiser-menu-group-colours"
+            >
+                Colours
+            </div>
+            <div role="menuitem">
+                <span class="customiser__menu-label">Pick</span>
+                <input type="color">
+            </div>
+            <div role="menuitem">
+                <span class="customiser__menu-label">Say</span>
+            </div>
+        </div>
+
+        <div role="seperator"></div>
+
+        <div
+             class="js-customiser-menu-reset"
+             role="menuitem"
+        >
+            Reset
+        </div>
+
+    </div>
+</section>

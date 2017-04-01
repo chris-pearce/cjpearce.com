@@ -1,0 +1,17 @@
+{% if page.section_id == page.section_id %}
+    {% assign is_active = 'is-active' %}
+{% endif %}
+
+<nav role="navigation">
+    <ul>
+        {% for page in site.pages %}
+            {% unless page.exclude_from_nav %}
+            <li>
+                <a class="{{ is_active }}" href="{{ page.url }}">
+                    <span>{{ page.title }}</span>
+                </a>
+            </li>
+            {% endunless %}
+        {% endfor %}
+    </ul>
+</nav>

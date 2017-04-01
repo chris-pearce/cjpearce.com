@@ -10,6 +10,9 @@
       "url": "http://cjpearce.com"
     }
   ],
+  "scripts": {
+    "start": "bundle exec jekyll serve"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:chris-pearce/cjpearce.com.git"

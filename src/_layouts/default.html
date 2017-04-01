@@ -1,15 +1,17 @@
-{% include html-head.html %}
+{% include head.html %}
 
-  <body>
+    <body>
 
-    {% include header.html %}
+        {% include nav.html %}
 
-    <main role="main" id="main" class="c-main">
-        {{ content }}
-    </main>
+        <main role="main" id="main">
+            <div>
+                {{ content }}
+            </div>
+        </main>
 
-    {% include scripts.html %}
+        {% include customiser.html %}
 
-  </body>
+    </body>
 
 </html>
