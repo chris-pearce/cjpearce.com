@@ -1,21 +1,21 @@
 {
-  "name": "chris-pearce-me",
-  "version": "0.0.0",
+  "name": "cjpearce.com",
+  "version": "0.1.0",
   "description": "Personal website of Chris Pearce",
-  "homepage": "http://chris-pearce.me",
+  "homepage": "http://cjpearce.com",
   "author": [
     {
       "name": "Chris Pearce",
-      "email": "hi@chris-pearce.me",
-      "url": "http://chris-pearce.me"
+      "email": "nowthen@cjpearce.com",
+      "url": "http://cjpearce.com"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:chris-pearce/chris-pearce.me.git"
+    "url": "git@github.com:chris-pearce/cjpearce.com.git"
   },
   "bugs": {
-    "url": "https://github.com/chris-pearce/chris-pearce.me/issues"
+    "url": "https://github.com/chris-pearce/cjpearce.com/issues"
   },
   "license": "The MIT License (MIT)",
   "devDependencies": {
