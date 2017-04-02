@@ -6,7 +6,7 @@
 
             {% assign is_active = nil %}
 
-            {% if page.section_id == item.section_id %}
+            {% if page.section_id == item.section_id and item.section_id != 'home' %}
                 {% assign is_active = 'is-active' %}
             {% endif %}
 
