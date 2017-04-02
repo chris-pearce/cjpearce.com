@@ -1,17 +1,22 @@
-{% if page.section_id == page.section_id %}
-    {% assign is_active = 'is-active' %}
-{% endif %}
-
-<nav role="navigation">
+<nav aria-label="Navigate cjpearce.com" class="nav" role="navigation">
     <ul>
-        {% for page in site.pages %}
-            {% unless page.exclude_from_nav %}
+        {% assign pages = site.pages | sort: 'order' %}
+
+        {% for item in pages %}
+
+            {% assign is_active = nil %}
+
+            {% if page.section_id == item.section_id %}
+                {% assign is_active = 'is-active' %}
+            {% endif %}
+
             <li>
-                <a class="{{ is_active }}" href="{{ page.url }}">
-                    <span>{{ page.title }}</span>
+                <a class="{{ is_active }}" href="{{ item.url }}">
+                    <span>{{ item.title }}</span>
                 </a>
             </li>
-            {% endunless %}
+
         {% endfor %}
+
     </ul>
 </nav>

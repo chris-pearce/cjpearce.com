@@ -1,6 +1,6 @@
-/* ✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄ */
-/* SETTINGS & ANIMATIONS */
-/* ✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄ */
+/* ————————————————————————————————————————————————— */
+/* ANIMATIONS                                        */
+/* ————————————————————————————————————————————————— */
 
 @keyframes main-entrance {
     to {
@@ -15,48 +15,70 @@
     }
 }
 
+
+
+
+/* ————————————————————————————————————————————————— */
+/* VARIABLES                                         */
+/* ————————————————————————————————————————————————— */
+
 :root {
-    --font-size: 1.2em;
-    --line-length: 60ch;
-    --spacing: var(--font-size);
-    --nav-width: 20vw;
-    --nav-width-outdent: calc(var(--nav-width) * -1);
-    --viewport-outdent: -100vw;
+    /* Typography */
+    --typography-font-size: 1.2em;
+    --typography-line-length: 60ch;
+
+    /* Spacing */
+    --spacing-base: var(--typography-font-size);
+    --spacing-small: calc(var(--spacing-base) / 2);
+
+    /* Dimensions */
+    --dimensions-nav-width: 20vw;
+    --dimensions-nav-width-outdent: calc(var(--dimensions-nav-width) * -1);
+    --dimensions-viewport-outdent: -100vw;
+
+    /* Shared */
+    --shared-nav-home-customiser-trigger-font-size: calc(var(--typography-font-size) / 1.5);
+    --shared-nav-home-customiser-trigger-padding:
+        calc(var(--spacing-base) / 1.8)
+        calc(var(--spacing-base) / 1.5);
+
+    /* Animations */
     --animation-main-entrance: 0.25s ease 1s forwards main-entrance;
     --animation-emoji-entrance: 0.2s ease 1.3s forwards emoji-entrance;
 
-    /* Theming */
-    --theme-dark-ale-bg: #e4e2d4;
-    --theme-dark-ale-bg2: #535736;
+    /* Colours */
+    --colour-text: #333;
+    --colour-primary: #0366d6;
 
-    --theme-pale-ale-bg: #bcdcea;
-    --theme-pale-ale-bg2: #6b4b57;
+    /* Customiser */
+    --customiser-themes-dark-ale-bg: #e4e2d4;
 
-    --theme-white-ale-bg: #eaa406;
-    --theme-white-ale-bg2: #35302e;
+    --customiser-themes-pale-ale-bg: #bcdcea;
 
-    --theme-system-font: -apple-system,
-                         BlinkMacSystemFont,
-                         'Segoe UI',
-                         Roboto,
-                         Oxygen-Sans,
-                         Ubuntu,
-                         Cantarell,
-                         'Helvetica Neue',
-                         sans-serif
+    --customiser-themes-white-ale-bg: #eaa406;
+
+    --customiser-fonts-system-font: -apple-system,
+                                    BlinkMacSystemFont,
+                                    'Segoe UI',
+                                    Roboto,
+                                    Oxygen-Sans,
+                                    Ubuntu,
+                                    Cantarell,
+                                    'Helvetica Neue',
+                                    sans-serif
 }
 
 
 
 
-/* ✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄ */
-/* BASE */
-/* ✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄ */
+/* ————————————————————————————————————————————————— */
+/* BASE                                              */
+/* ————————————————————————————————————————————————— */
 
 html {
     box-sizing: border-box;
     font-family: Fira Mono;
-    font-size: var(--font-size);
+    font-size: var(--typography-font-size);
     font-variant-ligatures: common-ligatures;
     overflow: hidden;
     -ms-text-size-adjust: 100%;
@@ -71,7 +93,7 @@ html {
 
 body {
     display: grid;
-    grid-template-columns: var(--nav-width) auto;
+    grid-template-columns: var(--dimensions-nav-width) auto;
 }
 
 *,
@@ -87,8 +109,7 @@ body {
 }
 
 a {
-    color: #333;
-    font-weight: bold;
+    color: var(--colour-primary);
     text-decoration-skip: ink;
     text-underline-position: under;
 }
@@ -99,8 +120,8 @@ a:hover {
 }
 
 h1 {
-    font-size: calc(2 * var(--font-size));
-    margin-bottom: calc(var(--spacing) / 2);
+    font-size: calc(2 * var(--typography-font-size));
+    margin-bottom: var(--spacing-small);
 }
 
 h1,
@@ -114,7 +135,7 @@ h3:not(:last-child),
 p:not(:last-child),
 ul:not(:last-child),
 ol:not(:last-child) {
-   margin-bottom: var(--spacing);
+   margin-bottom: var(--spacing-base);
 }
 
 button,
@@ -134,107 +155,154 @@ textarea {
 
 
 
-/* ✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄ */
-/* NAVIGATION */
-/* ✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄ */
+/* ————————————————————————————————————————————————— */
+/* NAVIGATION                                        */
+/* ————————————————————————————————————————————————— */
 
-[role="navigation"] {
-    animation: var(--animation-main-entrance);
-    background-color: black;
+/**
+ * Grid:
+ *
+ * [.....Nav.....]
+ * [Nav][Nav][Nav]
+ */
+
+.nav {
     display: grid;
-    transform: translatex(var(--nav-width-outdent));
+
+    /* Variables */
+    --nav-color-link-background: black;
+    --nav-color-link-foreground: white;
+    --nav-color-link-home-foreground: black;
 }
 
-[role="navigation"] ul {
+/* Home page */
+.home .nav {
+    animation: var(--animation-main-entrance);
+    transform: translatex(var(--dimensions-nav-width-outdent));
+}
+
+.nav ul {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr;
     list-style: none;
 }
 
-[role="navigation"] li {
+.nav li {
     display: grid;
+    grid-row: 2;
 }
 
-[role="navigation"] a {
+/* Home link */
+.nav li:first-child {
+    grid-column: 1 / span 3;
+    grid-row: 1;
+}
+
+.nav a {
     align-items: center;
-    color: white;
-    font-size: calc(3 * var(--font-size));
-    font-weight: 600;
     display: grid;
     justify-content: center;
-    letter-spacing: 0.06em;
     line-height: 1;
     text-decoration: none;
+}
+
+.nav li:not(:first-child) a {
+    background-color: var(--nav-color-link-background);
+    color: var(--nav-color-link-foreground);
+    font-size: calc(3 * var(--typography-font-size));
+    font-weight: 600;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
 }
 
-[role="navigation"] a:focus,
-[role="navigation"] a:hover,
-[role="navigation"] is-active {
-    background-color: #0366d6;
+/* Home link */
+.nav li:first-child a {
+    color: var(--nav-color-link-home-foreground);
+    font-size: var(--shared-nav-home-customiser-trigger-font-size);
+    padding: var(--shared-nav-home-customiser-trigger-padding);
 }
 
-[role="navigation"] a span {
+.nav li:not(:first-child) a:focus,
+.nav li:not(:first-child) a:hover,
+.nav li:not(:first-child) .is-active {
+    background-color: var(--colour-primary);
+}
+
+.nav li:first-child a:focus,
+.nav li:first-child a:hover {
+    color: var(--colour-primary);
+}
+
+.nav li:not(:first-child) span {
     writing-mode: vertical-lr;
 }
 
 
 
 
-/* ✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄ */
-/* MAIN */
-/* ✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄ */
+/* ————————————————————————————————————————————————— */
+/* MAIN                                              */
+/* ————————————————————————————————————————————————— */
 
-[role="main"] {
-    animation: var(--animation-main-entrance);
+main {
     align-items: center;
     display: grid;
     height: 100vh;
     justify-content: center;
     line-height: 1.65;
     overflow-y: auto;
-    padding-bottom: var(--spacing);
-    padding-top: var(--spacing);
-    transform: translatex(var(--nav-width-outdent));
+    padding-bottom: var(--spacing-base);
+    padding-top: var(--spacing-base);
 }
 
-[role="main"] > div {
-    max-width: var(--line-length);
+/* Home page */
+.home main {
+    animation: var(--animation-main-entrance);
+    transform: translatex(var(--dimensions-nav-width-outdent));
 }
 
-[role="main"] h1 {
+main > div {
+    max-width: var(--typography-line-length);
+}
+
+/* Home page */
+.home main h1 {
     position: relative;
 }
 
-[role="main"] h1::before {
+.home main h1::before {
     animation: var(--animation-emoji-entrance);
     content: '🤔';
     position: absolute;
-    transform: translatex(var(--viewport-outdent));
+    transform: translatex(var(--dimensions-viewport-outdent));
 }
 
 
 
 
-/* ✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄ */
-/* CUSTOMISER */
-/* ✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄ */
+/* ————————————————————————————————————————————————— */
+/* CUSTOMISER                                        */
+/* ————————————————————————————————————————————————— */
 
 .customiser {
-    animation: var(--animation-main-entrance);
     position: absolute;
     right: 0;
     top: 0;
     background-color: white;
+}
+
+/* Home page */
+.home .customiser {
+    animation: var(--animation-main-entrance);
     transform: translatex(100%);
 }
 
 .customiser__trigger {
     background: none;
-    border-bottom: calc(var(--font-size) / 12) solid;
     display: block;
-    font-size: calc(var(--font-size) / 1.5);
-    padding: calc(var(--spacing) / 1.8) calc(var(--spacing) / 1.5);
+    font-size: var(--shared-nav-home-customiser-trigger-font-size);
+    padding: var(--shared-nav-home-customiser-trigger-padding);
     outline: 0;
     width: 100%;
 }
@@ -242,26 +310,26 @@ textarea {
 .customiser__trigger:focus,
 .customiser__trigger:hover,
 .customiser__trigger.is-active {
-    background-color: #0366d6;
+    background-color: var(--colour-primary);
     color: white;
 }
 
 .customiser__menu {
-    padding-right: calc(var(--spacing) / 4);
-    padding-top: calc(var(--spacing) / 4);
+    padding-right: calc(var(--spacing-base) / 4);
+    padding-top: calc(var(--spacing-base) / 4);
 }
 
 .customiser__menu-group-heading {
     font-weight: bold;
-    margin-bottom: calc(var(--spacing) / 6);
+    margin-bottom: calc(var(--spacing-base) / 6);
 }
 
 .customiser__menu-group {
-    margin-bottom: calc(var(--spacing) / 3);
+    margin-bottom: calc(var(--spacing-base) / 3);
 }
 
 .customiser__menu [role="menuitem"]:not(:last-child) {
-    margin-bottom: calc(var(--spacing) / 6);
+    margin-bottom: calc(var(--spacing-base) / 6);
 }
 
 .customiser__menu [role="menuitem"]:focus,
@@ -274,9 +342,9 @@ textarea {
 
 
 
-/* ✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄ */
-/* HELPERS */
-/* ✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄ */
+/* ————————————————————————————————————————————————— */
+/* HELPERS                                           */
+/* ————————————————————————————————————————————————— */
 
 .hide-visually {
     clip: rect(1px, 1px, 1px, 1px);
@@ -291,49 +359,49 @@ textarea {
 
 
 
-/* ✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄ */
-/* THEMING */
-/* ✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄✄ */
+/* ————————————————————————————————————————————————— */
+/* CUSTOMISER                                        */
+/* ————————————————————————————————————————————————— */
 
 /* Root */
 .dark-ale {
-    background-color: var(--theme-dark-ale-bg);
+    background-color: var(--customiser-themes-dark-ale-bg);
 }
 
 .pale-ale {
-    background-color: var(--theme-pale-ale-bg);
+    background-color: var(--customiser-themes-pale-ale-bg);
 }
 
 .white-ale {
-    background-color: var(--theme-white-ale-bg);
+    background-color: var(--customiser-themes-white-ale-bg);
 }
 
 .system-font {
-    font-family: var(--theme-system-font);
+    font-family: var(--customiser-fonts-system-font);
 }
 
 /* Nav links */
-.dark-ale [role="navigation"] {
-    background-color: var(--theme-dark-ale-bg2);
+/* .dark-ale .nav {
+    background-color: var(--customiser-themes-dark-ale-bg2);
 }
 
-.pale-ale [role="navigation"] {
-    background-color: var(--theme-pale-ale-bg2);
+.pale-ale .nav {
+    background-color: var(--customiser-themes-pale-ale-bg2);
 }
 
-.white-ale [role="navigation"] {
-    background-color: var(--theme-white-ale-bg2);
-}
+.white-ale .nav {
+    background-color: var(--customiser-themes-white-ale-bg2);
+} */
 
 /* Emoji */
-.dark-ale [role="main"] h1::before {
+.home.dark-ale main h1::before {
     content: '😀';
 }
 
-.pale-ale [role="main"] h1::before {
+.home.pale-ale main h1::before {
     content: '😜';
 }
 
-.white-ale [role="main"] h1::before {
+.home.white-ale main h1::before {
     content: '🤗';
 }

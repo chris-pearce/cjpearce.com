@@ -5,6 +5,7 @@ ruby RUBY_VERSION
 gem 'rake'
 
 
+# Jekyll version
 gem 'jekyll', '~> 3.4.3'
 
 
