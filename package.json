@@ -10,8 +10,17 @@
       "url": "http://cjpearce.com"
     }
   ],
+  "config": {
+    "cssDist": "dist/assets/css/style.css",
+    "cssSrc": "src/_assets/css/style.css"
+  },
   "scripts": {
-    "start": "bundle exec jekyll serve"
+    "clean": "npm run rimraf dist",
+    "build:jekyll": "jekyll build",
+    "watch:jekyll": "jekyll serve",
+    "build:postcss": "postcss $npm_package_config_cssSrc -o $npm_package_config_cssDist",
+    "watch:postcss": "npm run build:postcss -- --watch",
+    "start": "clean & run-p -n watch:*"
   },
   "repository": {
     "type": "git",
@@ -23,8 +32,10 @@
   "license": "The MIT License (MIT)",
   "devDependencies": {
     "autoprefixer": "^6.7.7",
-    "gulp": "^3.9.1",
-    "gulp-load-plugins": "^1.5.0",
-    "postcss-import": "^9.1.0"
+    "npm-run-all": "^4.0.2",
+    "postcss": "^5.2.16",
+    "postcss-cli": "^3.1.1",
+    "postcss-import": "^9.1.0",
+    "rimraf": "^2.6.1"
   }
 }

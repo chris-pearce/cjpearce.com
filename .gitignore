@@ -6,6 +6,9 @@ node_modules
 .DS_Store
 .DS_Store?
 .DS_Store*
+*.sass-cache
+.sass-cache
+/.sass-cache
 .Trashes
 *.7z
 *.dmg

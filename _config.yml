@@ -1,5 +1,6 @@
 # Examples:
 # https://github.com/showcases/github-pages-examples
+# https://gist.github.com/tony-jones/609c16a8f3f7f31a0d9b
 
 
 # Site settings
@@ -29,11 +30,17 @@ github_username: chris-pearce
 # Server config
 # https://github.com/RobertDeRose/jekyll-livereload
 livereload: true
+port: 4444
 
 
 # Output
 liquid:
     error_mode: strict
+
+
+# NPM scripts builds the assets so we tell Jekyll not to remove them
+keep_files:
+    - 'assets'
 
 
 # Defaults
