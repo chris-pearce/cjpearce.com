@@ -11,16 +11,20 @@
     }
   ],
   "config": {
-    "cssDist": "dist/assets/css/style.css",
-    "cssSrc": "src/_assets/css/style.css"
+    "cssDist": "./dist/assets/css/style.css",
+    "cssSrc": "./src/_assets/css/style.css",
+    "dist": "./dist",
+    "src": "./src"
   },
   "scripts": {
-    "clean": "npm run rimraf dist",
+    "clean": "rimraf $npm_package_config_dist",
     "build:jekyll": "jekyll build",
     "watch:jekyll": "jekyll serve",
+    "build:html": "html-minifier --input-dir ./dist --output-dir ./dist --collapse-whitespace --file-ext html",
     "build:postcss": "postcss $npm_package_config_cssSrc -o $npm_package_config_cssDist",
     "watch:postcss": "npm run build:postcss -- --watch",
-    "start": "clean & run-p -n watch:*"
+    "start": "npm run clean & NODE_ENV=development run-p -n watch:*",
+    "build": "npm run clean & NODE_ENV=production run-p -n build:*"
   },
   "repository": {
     "type": "git",
@@ -35,6 +39,7 @@
     "npm-run-all": "^4.0.2",
     "postcss": "^5.2.16",
     "postcss-cli": "^3.1.1",
+    "postcss-csso": "^2.0.0",
     "postcss-import": "^9.1.0",
     "rimraf": "^2.6.1"
   }
