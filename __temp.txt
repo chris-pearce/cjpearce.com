@@ -1,0 +1,3 @@
+<script>
+  {% include js/font-face-observer.min.js %}
+</script>

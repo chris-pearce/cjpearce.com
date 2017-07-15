@@ -6,77 +6,66 @@
  */
 
 .nav {
-    display: grid;
-
-    /* Variables */
     --nav-link-font-size: calc(3 * var(--typography-font-size));
     --nav-color-link-background: black;
     --nav-color-link-foreground: white;
+    display: grid;
+    grid-column: 1;
 }
 
-/* Home page */
-.home .nav {
-    animation: var(--animation-main-entrance);
-    transform: translatex(var(--dimensions-nav-width-outdent));
-}
-
-.nav ul {
+.nav__inner {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto 1fr;
     list-style: none;
 }
 
-.nav li {
+.home .nav__inner {
+    animation: var(--animation-main-entrance);
+    transform: translatex(var(--dimensions-nav-width-outdent));
+}
+
+.nav__inner li {
     display: grid;
     grid-row: 2;
 }
 
-/* Home link */
-.nav li:first-child {
+.nav__inner li:first-child {
     grid-column: 1 / span 3;
     grid-row: 1;
 }
 
-.nav a {
-    align-items: center;
+.nav__inner a {
     display: grid;
-    justify-content: center;
     line-height: 1;
+    place-items: center;
     text-decoration: none;
 }
 
-.nav li:not(:first-child) a {
+.nav__inner li:not(:first-child) a {
     background-color: var(--nav-color-link-background);
     color: var(--nav-color-link-foreground);
     font-size: var(--nav-link-font-size);
     font-weight: var(--typography-font-weight-bold);
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    /* transition: 0.1s ease; */
+    transition: 0.1s ease;
 }
 
-/* Home link */
-.nav li:first-child a {
+.nav__inner li:first-child a {
     background-color: var(--shared-nav-home-customiser-trigger-background-colour);
     color: var(--shared-nav-home-customiser-trigger-foreground-colour);
     font-size: var(--shared-nav-home-customiser-trigger-font-size);
     padding: var(--shared-nav-home-customiser-trigger-padding);
 }
 
-html .nav a:focus,
-html .nav a:hover,
-html .nav .is-active {
+.nav__inner li a:focus,
+.nav__inner li a:hover,
+.nav__inner li a.is-active {
     background-color: var(--shared-nav-home-customiser-trigger-background-hover-colour);
     color: var(--shared-nav-home-customiser-trigger-foreground-hover-colour);
 }
 
-/* .nav li:not(:first-child) a:focus,
-.nav li:not(:first-child) a:hover {
-    clip-path: polygon(100% 2%, 100% 100%, 50% 100%, 0 100%, 0 0);
-    transform: translateY(-0.1em);
-} */
-
-.nav li:not(:first-child) span {
+.nav__inner li:not(:first-child) span {
     writing-mode: vertical-lr;
 }

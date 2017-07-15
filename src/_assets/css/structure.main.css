@@ -1,25 +1,16 @@
 main {
-    align-items: center;
-    display: grid;
-    height: 100vh;
-    justify-content: center;
+    grid-column: 3;
     line-height: 1.65;
     overflow-y: auto;
-    padding-bottom: var(--spacing-base);
-    padding-top: var(--spacing-base);
+    padding-bottom: var(--spacing-large);
+    padding-top: var(--spacing-large);
 }
 
-/* Home page */
 .home main {
     animation: var(--animation-main-entrance);
     transform: translatex(var(--dimensions-nav-width-outdent));
 }
 
-main > div {
-    max-width: var(--typography-line-length);
-}
-
-/* Home page */
 .home main h1 {
     position: relative;
 }

@@ -10,6 +10,7 @@
 
     /* Spacing */
     --spacing-base: var(--typography-font-size);
+    --spacing-large: calc(var(--spacing-base) * 2);
     --spacing-small: calc(var(--spacing-base) / 2);
 
     /* Dimensions */

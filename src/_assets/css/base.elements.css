@@ -14,9 +14,16 @@ html {
     }
 }
 
+/**
+ * Grid:
+ *
+ * [Nav][Nav][Nav][Nav][Nav]
+ */
+
 body {
     display: grid;
-    grid-template-columns: var(--dimensions-nav-width) auto;
+    grid-template-columns: var(--dimensions-nav-width) 1fr var(--typography-line-length) 1fr;
+    grid-template-rows: 100vh;
 }
 
 *,
