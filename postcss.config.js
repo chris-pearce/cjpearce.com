@@ -3,7 +3,9 @@
 const config = {
     plugins: {
         'postcss-import': {},
-        'autoprefixer': {grid: false}
+        'autoprefixer': {
+            grid: false
+        }
     }
 };
 
