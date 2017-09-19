@@ -1,0 +1,52 @@
+:root {
+    /* Typography */
+    --typography-font-size: 1.2em;
+    --typography-font-weight-bold: 700;
+    --typography-line-length: 60ch;
+
+    /* Colours */
+    --colour-text: #333;
+    --colour-primary: #0366d6;
+
+    /* Spacing */
+    --spacing-base: var(--typography-font-size);
+    --spacing-large: calc(var(--spacing-base) * 2);
+    --spacing-small: calc(var(--spacing-base) / 2);
+
+    /* Dimensions */
+    --dimensions-nav-width: 15.5em; /* 300px */
+    --dimensions-nav-width-outdent: calc(var(--dimensions-nav-width) * -1);
+    --dimensions-viewport-outdent: -100vw;
+
+    /* Shared */
+    --shared-nav-home-customiser-trigger-background-colour: white;
+    --shared-nav-home-customiser-trigger-foreground-colour: black;
+    --shared-nav-home-customiser-trigger-background-hover-colour: var(--colour-primary);
+    --shared-nav-home-customiser-trigger-foreground-hover-colour: white;
+    --shared-nav-home-customiser-trigger-font-size: calc(var(--typography-font-size) / 1.5);
+    --shared-nav-home-customiser-trigger-padding:
+        calc(var(--spacing-base) / 1.8)
+        calc(var(--spacing-base) / 1.5);
+
+    /* Animations */
+    --animation-main-entrance: 0.25s ease 1s forwards main-entrance;
+    --animation-emoji-entrance: 0.2s ease 1.3s forwards emoji-entrance;
+
+    /* Customiser */
+    --customiser-themes-dark-ale-bg: #e4e2d4;
+
+    --customiser-themes-pale-ale-bg: #bcdcea;
+
+    --customiser-themes-white-ale-bg: #eaa406;
+
+    /* https://github.com/JLHwung/postcss-font-family-system-ui */
+    --customiser-fonts-system-font: -apple-system,
+                                    BlinkMacSystemFont,
+                                    'Segoe UI',
+                                    Roboto,
+                                    Oxygen-Sans,
+                                    Ubuntu,
+                                    Cantarell,
+                                    'Helvetica Neue',
+                                    sans-serif
+}

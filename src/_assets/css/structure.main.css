@@ -1,0 +1,23 @@
+main {
+    grid-column: 3;
+    line-height: 1.65;
+    overflow-y: auto;
+    padding-bottom: var(--spacing-large);
+    padding-top: var(--spacing-large);
+}
+
+.home main {
+    animation: var(--animation-main-entrance);
+    transform: translatex(var(--dimensions-nav-width-outdent));
+}
+
+.home main h1 {
+    position: relative;
+}
+
+.home main h1::before {
+    animation: var(--animation-emoji-entrance);
+    content: '🤔';
+    position: absolute;
+    transform: translatex(var(--dimensions-viewport-outdent));
+}

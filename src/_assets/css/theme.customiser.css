@@ -1,0 +1,42 @@
+/* Root */
+.dark-ale {
+    background-color: var(--customiser-themes-dark-ale-bg);
+}
+
+.pale-ale {
+    background-color: var(--customiser-themes-pale-ale-bg);
+}
+
+.white-ale {
+    background-color: var(--customiser-themes-white-ale-bg);
+}
+
+.system-font {
+    font-family: var(--customiser-fonts-system-font);
+}
+
+/* Nav links */
+/* .dark-ale .nav {
+    background-color: var(--customiser-themes-dark-ale-bg2);
+}
+
+.pale-ale .nav {
+    background-color: var(--customiser-themes-pale-ale-bg2);
+}
+
+.white-ale .nav {
+    background-color: var(--customiser-themes-white-ale-bg2);
+} */
+
+/* Emoji */
+.home.dark-ale main h1::before {
+    content: '😀';
+}
+
+.home.pale-ale main h1::before {
+    content: '😜';
+}
+
+.home.white-ale main h1::before {
+    content: '🤗';
+}

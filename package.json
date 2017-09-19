@@ -1,0 +1,49 @@
+{
+  "name": "cjpearce.com",
+  "version": "0.1.0",
+  "description": "Personal website of Chris Pearce",
+  "homepage": "http://cjpearce.com",
+  "author": {
+    "name": "Chris Pearce",
+    "email": "nowthen@cjpearce.com",
+    "url": "http://cjpearce.com"
+  },
+  "config": {
+    "cssDist": "./dist/assets/css/style.css",
+    "cssSrc": "./src/_assets/css/style.css",
+    "assetsDist": "./dist/assets/",
+    "fontsSrc": "./src/_assets/fonts",
+    "dist": "./dist",
+    "src": "./src"
+  },
+  "scripts": {
+    "clean": "rimraf $npm_package_config_dist",
+    "copy:fonts": "mkdir -p $npm_package_config_assetsDist && cp -r $npm_package_config_fontsSrc $npm_package_config_assetsDist",
+    "build:jekyll": "jekyll build",
+    "watch:jekyll": "jekyll serve",
+    "build:html": "html-minifier --input-dir ./dist --output-dir ./dist --collapse-whitespace --file-ext html",
+    "build:postcss": "postcss $npm_package_config_cssSrc -o $npm_package_config_cssDist",
+    "watch:postcss": "npm run build:postcss -- --watch",
+    "prestart": "npm-run-all clean copy:*",
+    "start": "NODE_ENV=development bundle exec run-p -n watch:*",
+    "prebuild": "npm-run-all clean copy:*",
+    "build": "NODE_ENV=production bundle exec run-p -n build:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:chris-pearce/cjpearce.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chris-pearce/cjpearce.com/issues"
+  },
+  "license": "The MIT License (MIT)",
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "npm-run-all": "^4.1.1",
+    "postcss": "^6.0.11",
+    "postcss-cli": "^4.1.1",
+    "postcss-csso": "^2.0.0",
+    "postcss-import": "^11.0.0",
+    "rimraf": "^2.6.2"
+  }
+}

@@ -1,0 +1,53 @@
+.customiser {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/* Home page */
+.home .customiser {
+    animation: var(--animation-main-entrance);
+    transform: translatex(100%);
+}
+
+.customiser__trigger {
+    background: var(--shared-nav-home-customiser-trigger-background-colour);
+    color: var(--shared-nav-home-customiser-trigger-foreground-colour);
+    display: block;
+    font-size: var(--shared-nav-home-customiser-trigger-font-size);
+    padding: var(--shared-nav-home-customiser-trigger-padding);
+    outline: 0;
+    width: 100%;
+}
+
+.customiser__trigger:focus,
+.customiser__trigger:hover,
+.customiser__trigger.is-active {
+    background: var(--shared-nav-home-customiser-trigger-background-hover-colour);
+    color: var(--shared-nav-home-customiser-trigger-foreground-hover-colour);
+}
+
+.customiser__menu {
+    padding-right: calc(var(--spacing-base) / 4);
+    padding-top: calc(var(--spacing-base) / 4);
+}
+
+.customiser__menu-group-heading {
+    font-weight: bold;
+    margin-bottom: calc(var(--spacing-base) / 6);
+}
+
+.customiser__menu-group {
+    margin-bottom: calc(var(--spacing-base) / 3);
+}
+
+.customiser__menu [role="menuitem"]:not(:last-child) {
+    margin-bottom: calc(var(--spacing-base) / 6);
+}
+
+.customiser__menu [role="menuitem"]:focus,
+.customiser__menu [role="menuitem"]:hover,
+.customiser__menu [role="menuitem"].is-active {
+    background-color: black;
+    color: white;
+}

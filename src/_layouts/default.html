@@ -1,0 +1,17 @@
+{% include head.html %}
+
+    <body>
+
+        <a class="hide-visually" href="#main">Skip to main content</a>
+
+        {% include nav.html %}
+
+        <main id="main" role="main">
+            {{ content }}
+        </main>
+
+        {% include customiser.html %}
+
+    </body>
+
+</html>

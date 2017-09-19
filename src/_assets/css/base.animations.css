@@ -1,0 +1,12 @@
+@keyframes main-entrance {
+    to {
+        transform: none;
+    }
+}
+
+@keyframes emoji-entrance {
+    to {
+        left: -1.3em;
+        transform: none;
+    }
+}

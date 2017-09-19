@@ -1,0 +1,86 @@
+# Examples:
+# https://github.com/showcases/github-pages-examples
+# https://gist.github.com/tony-jones/609c16a8f3f7f31a0d9b
+
+
+# Site settings
+title: Chris P
+email: nowthen@cjpearce.com
+description: 'Home of Chris P, love the colour of it all.'
+url: 'http://cjpearce.com'
+timezone: Australia/Sydney
+
+
+# Site structure
+destination: ./dist
+source: ./src
+assets: assets
+
+
+# Permalinks
+permalink: pretty
+
+
+# Social
+authors: Chris Pearce
+twitter_username: chris__pearce
+github_username: chris-pearce
+
+
+# Server config
+# https://github.com/RobertDeRose/jekyll-livereload
+livereload: true
+port: 4444
+
+
+# Output
+liquid:
+    error_mode: strict
+
+
+# NPM scripts builds the assets so we tell Jekyll not to remove them
+keep_files:
+    - 'assets'
+
+
+# Defaults
+defaults:
+    # All
+    -
+        scope:
+            path: ''
+        values:
+            layout: 'default'
+    # About section
+    -
+        scope:
+            path: 'about'
+            type: 'pages'
+        values:
+            order: 1
+            section_id: 'about'
+            title: 'About'
+    # Work section
+    -
+        scope:
+            path: 'work'
+            type: 'pages'
+        values:
+            order: 2
+            section_id: 'work'
+            title: 'Work'
+    # Writing section
+    -
+        scope:
+            path: 'writing'
+            type: 'pages'
+        values:
+            order: 3
+            section_id: 'writing'
+            title: 'Writing'
+    -
+        scope:
+            path: 'writing'
+            type: 'posts'
+        values:
+            section_id: 'writing'

@@ -1,0 +1,90 @@
+html {
+    box-sizing: border-box;
+    font-family: 'Fira Mono';
+    font-size: var(--typography-font-size);
+    font-variant-ligatures: common-ligatures;
+    overflow: hidden;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+@supports not (font-variant-ligatures: common-ligatures) {
+    html {
+        font-feature-settings: 'liga', 'liga', 'clig';
+    }
+}
+
+/**
+ * Grid:
+ *
+ * [Nav][Nav][Nav][Nav][Nav]
+ */
+
+body {
+    display: grid;
+    grid-template-columns: var(--dimensions-nav-width) 1fr var(--typography-line-length) 1fr;
+    grid-template-rows: 100vh;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+*:not(input) {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    background-color: var(--colour-primary);
+    color: white;
+}
+
+a {
+    color: var(--colour-primary);
+    text-decoration-skip: ink;
+}
+
+a:focus,
+a:hover {
+    background-color: var(--colour-primary);
+    color: white;
+    text-decoration: none;
+}
+
+h1 {
+    display: flex;
+    font-size: calc(2 * var(--typography-font-size));
+    margin-bottom: var(--spacing-small);
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.4;
+}
+
+h2:not(:last-child),
+h3:not(:last-child),
+p:not(:last-child),
+ul:not(:last-child),
+ol:not(:last-child) {
+   margin-bottom: var(--spacing-base);
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+}
+
+[hidden] {
+    display: none;
+}
