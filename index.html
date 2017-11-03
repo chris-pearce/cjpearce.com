@@ -1,66 +1,135 @@
 <!doctype html>
 <html lang="en-au">
-<head>
+
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chris Pearce&mdash;Front end designer</title>
+    <title>Chris Pearce&mdash;Front end developer</title>
+    <style>
+      @font-face {
+        font-family: system;
+        font-style: normal;
+        font-weight: 300;
+        src: local('.SFNSText-Light'), local('.HelveticaNeueDeskInterface-Light'), local('.LucidaGrandeUI'), local('Ubuntu Light'), local('Segoe UI Light'), local('Roboto-Light'), local('DroidSans'), local('Tahoma');
+      }
 
-    <link href="https://fonts.googleapis.com/css?family=Taviraj:100,100i,400,400i,800,800i" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+      :root {
+        --color-link: royalblue;
+        --font-size-small: 0.9em;
+        --spacing: 1em;
+      }
 
-    <!-- <meta name="description" content="His attention to detail, years of experience, and care for the user allows him to build UI’s that are robust, highly maintainable, performant and progressively enhanced.">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Chris Pearce">
-    <meta name="twitter:description" content="His attention to detail, years of experience, and care for the user allows him to build UI’s that are robust, highly maintainable, performant and progressively enhanced.">
-    <meta name="twitter:url" content="http://chris-pearce.me">
-    <meta name="twitter:image" content="http://chris-pearce.me/me-4@2x.jpg">
-    <meta name="twitter:creator" content="@chris__pearce">
-    <meta property="og:site_name" content="Chris Pearce">
-    <meta property="og:title" content="Chris Pearce">
-    <meta property="og:description" content="His attention to detail, years of experience, and care for the user allows him to build UI’s that are robust, highly maintainable, performant and progressively enhanced.">
-    <meta property="og:url" content="http://chris-pearce.me">
-    <meta property="og:image" content="http://chris-pearce.me/me-4@2x.jpg"> -->
-</head>
+      *,
+      *::after,
+      *::before {
+        border: 0;
+        margin: 0;
+        padding: 0;
+      }
 
-<body class="page-about">
+      html {
+        background-color: whitesmoke;
+        font-family: system;
+        font-size: 1.6em;
+        line-height: 1.5;
+      }
 
-    <div class="l-header-wrap">
-    <header role="banner" class="l-header">
-        <!-- <h1 class="l-header__author">Chris Pearce</h1> -->
-        <nav role="navigation" class="l-header__nav">
-            <ul>
-                <li>
-                    <a href="about" class="is-active">About</a>
-                </li>
-                <li>
-                    <a href="writing">Writing</a>
-                </li>
-                <li>
-                    <a href="projects">Projects</a>
-                </li>
-            </ul>
-        </nav>
-        <p class="l-header__headline">Hello, I’m Chris Pearce, a Front end designer on the product team at Campaign Monitor, based in Sydney, Australia.</p>
-    </header>
-    </div>
+      html,
+      body {
+        min-height: calc(100vh - calc(var(--spacing) * 2));
+      }
 
-    <main role="main" class="l-main" itemscope itemtype="http://schema.org/Person">
-        <p>I <strong>love</strong> the craft of building quality User Interfaces and care deeply about the user experience, accessibility, and maintainability of everything I build, and this shows <a href="projects">in my work</a>.</p>
-        <p>I’m really passionate about working on internal design systems with other like minded peers where I get to build highly consumable, accessible, and robust User Interface components. A system that allows engineers to focus on the feature logic <em>not</em> the view logic, that provides an organisation with consistent and accessible user experiences and where new product features can be delivered fast whilst still maintaining a high level of quality. Another passion of mine is CSS architecture and writing CSS at scale.</p>
-        <p>What else? I like to hang out with Kate Levin and try not to discuss our day jobs to much. Spend time with my daughter Matilda. Add to my trainer collection. Eat chocolate and drink English Breakfast tea. And spend way to much time fussing over the details.</p>
-    </main>
+      body {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: var(--spacing);
+      }
 
+      @media (min-width: 48em) {
+        body {
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 45ch;
+        }
+      }
 
-    <!--
+      a {
+        color: var(--color-link);
+        outline: none;
+        text-decoration-skip: ink;
+      }
+
+      a:focus,
+      a:hover {
+        background-color: var(--color-link);
+        color: white;
+        text-decoration: none;
+        transition: all 0.15s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+      }
+
+      p,
+      img {
+        margin-bottom: var(--spacing);
+      }
+
+      p+p {
+        font-style: italic;
+        font-size: var(--font-size-small);
+        margin-left: var(--spacing);
+        margin-right: var(--spacing);
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: var(--font-size-small);
+        justify-content: space-around;
+        list-style: none;
+        width: 100%;
+      }
+
+      @media (min-width: 48em) {
+        ul {
+          justify-content: space-evenly;
+        }
+      }
+
+      img {
+        border: 0.2em solid rgba(65, 105, 225, 0.4);
+        border-radius: 100%;
+        max-width: 100%;
+        order: -1;
+        width: 7.8125em;
+      }
+
+      img:hover {
+        border-color: rgb(65, 105, 225);
+        transition: border-color 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <p>I’m doing my best to finish my new site, however,
+      <a href="https://www.netflix.com" rel="external">Netflix</a> is getting in the way 😊. In the meantime here’s some links and a short bio:</p>
+    <p>A builder of scalable, inclusive, and performant UI’s. A lover of CSS, JS, and all things front end development/architecture.</p>
     <ul>
-        <li><a href="mailto:hi@chris-pearce.me" itemprop="email">Email</a></li>
-        <li><a href="https://twitter.com/chris__pearce" rel="external me" itemprop="sameAs">Twitter</a></li>
-        <li><a href="https://au.linkedin.com/pub/chris-pearce/28/5b5/3a" rel="external me" itemprop="sameAs">LinkedIn</a></li>
-        <li><a href="https://github.com/chris-pearce/" rel="external">GitHub</a></li>
+      <li>
+        <a href="https://github.com/chris-pearce" rel="external">GitHub</a>
+      </li>
+      <li>
+        <a href="https://codepen.io/chris-pearce" rel="external">CodePen</a>
+      </li>
+      <li>
+        <a href="https://twitter.com/chris__pearce" rel="external">Twitter</a>
+      </li>
+      <li>
+        <a href="https://medium.com/@chrispearce" rel="external">Medium</a>
+      </li>
     </ul>
-     -->
+    <img src="me.jpeg" alt="Chris Pearce avatar">
+  </body>
 
-     <!-- <span>ಠ_ಠ</span> -->
-
-</body>
 </html>
