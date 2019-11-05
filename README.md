@@ -5,7 +5,6 @@
 ## Table of Contents <!-- omit in toc -->
 - [About](#about)
 - [CV](#cv)
-  - [Todo](#todo)
   - [Resources and Tools](#resources-and-tools)
 
 ## About
@@ -13,12 +12,6 @@
 This website is the online home of Chris Pearce, a UX Engineer.
 
 ## CV
-
-### Todo
-
-- Print CSS
-- Hover effect on profile pic?
-- [CSS Scroll Snap](https://webdesign.tutsplus.com/tutorials/how-to-scroll-snap-using-css--cms-30333)
 
 ### Resources and Tools
 
