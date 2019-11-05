@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-au">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chris Pearce 🤷‍♂️ UX Engineer</title>
+    <style>
+      :root {
+        --color-link: royalblue;
+        --font-size-small: 0.9em;
+        --spacing: 1em;
+      }
+
+      *,
+      *::after,
+      *::before {
+        border: 0;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        background-color: whitesmoke;
+        color: rgba(0, 0, 0, 0.84);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+          sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        font-size: 1.6em;
+        font-weight: 300;
+        line-height: 1.5;
+      }
+
+      html,
+      body {
+        min-height: calc(100vh - calc(var(--spacing) * 2));
+      }
+
+      body {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: var(--spacing);
+      }
+
+      @media (min-width: 48em) {
+        body {
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 45ch;
+        }
+      }
+
+      a {
+        color: var(--color-link);
+        outline: none;
+      }
+
+      a:focus,
+      a:hover {
+        background-color: var(--color-link);
+        color: white;
+        text-decoration: none;
+        transition: all 0.15s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+      }
+
+      p,
+      img {
+        margin-bottom: var(--spacing);
+      }
+
+      p + p {
+        font-style: italic;
+        font-size: var(--font-size-small);
+        margin-left: var(--spacing);
+        margin-right: var(--spacing);
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: var(--font-size-small);
+        justify-content: space-around;
+        list-style: none;
+        width: 100%;
+      }
+
+      @media (min-width: 48em) {
+        ul {
+          justify-content: space-evenly;
+        }
+      }
+
+      img {
+        border: 0.2em solid gainsboro;
+        border-radius: 100%;
+        max-width: 100%;
+        order: -1;
+        width: 7.8125em;
+      }
+
+      img:hover {
+        border-color: rgb(65, 105, 225);
+        transition: border-color 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <p>
+      I’m doing my best to finish my new site, however,
+      <a href="https://www.netflix.com" rel="external">Netflix</a> is getting in the way 😊. In the
+      meantime here’s some links and a short bio:
+    </p>
+    <p>
+      I'm an experienced UX Engineer that has strong empathy for the user. I build product user
+      experiences that are consistent, inclusive, and robust. And I like to think I help bridge the
+      gap between engineering and design.
+    </p>
+    <ul>
+      <li>
+        <a href="https://github.com/chris-pearce" rel="external">GitHub</a>
+      </li>
+      <li>
+        <a href="https://codepen.io/chris-pearce" rel="external">CodePen</a>
+      </li>
+      <li>
+        <a href="https://twitter.com/chris__pearce" rel="external">Twitter</a>
+      </li>
+      <li>
+        <a href="https://medium.com/@chrispearce" rel="external">Medium</a>
+      </li>
+    </ul>
+    <img src="me.jpg" alt="Chris Pearce avatar" />
+  </body>
+</html>

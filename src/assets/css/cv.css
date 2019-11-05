@@ -1,0 +1,122 @@
+:root {
+  --color-text-body: rgb(38, 39, 44);
+  --color-highlight: blue;
+  --element-spacing: 2rem;
+}
+
+html {
+  color: var(--color-text-body);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu,
+    'Helvetica Neue', sans-serif;
+  font-kerning: normal;
+  font-size: 1.2rem;
+  font-variant-ligatures: common-ligatures contextual;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+  line-height: 1.45;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+}
+
+@media screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 2dppx) {
+  html {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: 0.25rem solid var(--color-highlight);
+  outline-offset: 0.15rem;
+}
+
+a {
+  color: steelblue;
+  transition: color 0.15s linear;
+}
+
+a:focus,
+a:hover {
+  color: var(--color-highlight);
+}
+
+a,
+button,
+summary,
+[tabindex]:not([tabindex='-1']) {
+  touch-action: manipulation;
+}
+
+img {
+  filter: brightness(300%) opacity(30%) sepia(40%);
+  height: auto;
+  max-width: 100%;
+  transition: filter 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.tada {
+  filter: none;
+}
+
+h1 {
+  font-size: 2.8rem;
+  padding-block-end: var(--element-spacing);
+  padding-block-start: calc(var(--element-spacing) / 2);
+}
+
+h2 {
+  border-block-start: 1px solid var(--color-text-body);
+  font-size: 1.8rem;
+  letter-spacing: 0.05rem;
+  line-height: 1;
+  padding-block-start: 0.25rem;
+  writing-mode: vertical-rl;
+}
+
+h1,
+h2,
+dt {
+  font-weight: 500;
+}
+
+p:not(:last-child),
+dl > div {
+  margin-block-end: 1rem;
+}
+
+::selection {
+  background: hsla(265, 44%, 49%, 0.2);
+}
+
+h1,
+section {
+  margin-inline-end: auto;
+  margin-inline-start: auto;
+  max-width: 60rem;
+}
+
+section {
+  margin-block-end: calc(var(--element-spacing) * 2);
+}
+
+li {
+  list-style: none;
+}
+
+#personal-details {
+  display: grid;
+  grid-template-columns: auto 1fr 2fr auto;
+  grid-column-gap: var(--element-spacing);
+}
+
+#skills {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  grid-column-gap: var(--element-spacing);
+}

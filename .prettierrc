@@ -1,0 +1,7 @@
+{
+  "htmlWhitespaceSensitivity": "css",
+  "printWidth": 100,
+  "proseWrap": "never",
+  "singleQuote": true,
+  "trailingComma": "es5"
+}

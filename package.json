@@ -1,0 +1,15 @@
+{
+  "author": "Chris Pearce <crite70@gmail.com>",
+  "license": "MIT",
+  "repository": "git@github.com:chris-pearce/cjpearce.com.git",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "prebuild": "yarn clean",
+    "build": "cp -r src dist",
+    "dev": "browser-sync start --server 'src' --files 'src'"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "prettier": "1.18.2"
+  }
+}
